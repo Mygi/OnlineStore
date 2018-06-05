@@ -1,0 +1,24 @@
+
+<app-feature-banner></app-feature-banner>
+
+<div class="container home-product-list grey-blue">
+  <h2><span>Featured Products</span> <a routerLink="/collections/new" class="btn btn-grey-blue">view more</a></h2>
+  <div class="row">
+  <app-product-grid-item class="col-md-3"  *ngFor="let productItem of products | slice:0:4; let i=index" [product]="productItem"></app-product-grid-item>
+  </div>
+</div>
+
+<div class="container home-product-list green">
+  <h2><span>New Arrivals</span> <a routerLink="/collections/latest" class="btn btn-green">view more</a></h2>
+  <div class="row">
+    <app-product-grid-item class="col-md-3" *ngFor="let productItem of products | slice:0:4; let i=index" [product]="productItem"></app-product-grid-item>
+  </div>
+</div>
+
+<div class="container-fluid collections">
+  <div class="container home-product-list rust">
+     <app-collections-grid-list></app-collections-grid-list>
+  </div>
+</div>
+
+<app-newsletter></app-newsletter>

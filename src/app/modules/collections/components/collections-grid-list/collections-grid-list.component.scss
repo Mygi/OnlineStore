@@ -1,0 +1,64 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.collection-item {
+  cursor: pointer;
+  @include ease;
+  &:hover {
+    opacity: 0.7;
+  }
+  > div.flex-center {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    //@include flex-center;
+    text-align: center;
+    z-index: 10;
+    span {
+      display: block;
+      font-size: 26px;
+      color: $white;
+      @include filson-bold;
+      width: 100%;
+      padding: 0 40px;
+      line-height: 1;
+      text-transform: lowercase;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .image-wrap {
+    background: $grey-blue;
+    img {
+      opacity: 0.9;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.row {
+  &.no-flex {
+    @include clear;
+    display: block;
+    .col {
+      flex-basis: auto;
+      flex-grow: 0;
+      margin-bottom: 40px;
+      width: 25%;
+      float: left;
+      &:first-child {
+        width: 50%;
+        .collection-item {
+          > div {
+            span {
+              font-size: 33px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

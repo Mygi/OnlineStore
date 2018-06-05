@@ -1,0 +1,24 @@
+<form class="form" #productInventoryForm="ngForm">
+<fieldset class="form-group">
+  <h3 class="form-group-heading">Inventory</h3>
+  <div class="form-row">
+<div class="row">
+  <div class="col-md-5">
+    <label>SKU (Stock Keeping Unit)</label>
+    <input class="form-control" [(ngModel)]="productItem.SKU" name="sku" type="text">
+  </div>
+  <div class="col-md-5">
+    <label>Quantity</label>
+    <input class="form-control" [(ngModel)]="productItem.stock" name="inventory" value="0">
+  </div>
+  <div class="col-md-2 right-aligned">
+    <label>Inventory</label>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="productItem.trackInventory" name="trackInventory">
+      <span class="slider"></span>
+    </label>
+  </div>
+</div>
+</div>
+</fieldset>
+</form>

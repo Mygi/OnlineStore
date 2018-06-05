@@ -1,0 +1,76 @@
+<form class="form" #attrForm="ngForm">
+  <fieldset class="form-group attributes">
+    <h3 class="form-group-heading">Product Options</h3>
+    <button class="btn btn-link btn-small" *ngIf="allowNewAttributes()" (click)="op2.toggle($event)">
+      <i class="fal fa-plus-circle"></i> Add Product Attributes</button>
+      <p-overlayPanel #op2>
+        <div class="menu-panel">
+          <div *ngFor="let item of availableAttributes">
+              <button class="tag" (click)="addOption(item)">
+                {{item.attributeType}}
+                <i class="fal fa-plus"></i>
+              </button>
+          </div>
+        </div>        
+      </p-overlayPanel>
+    <div class="form-row">
+      <p>Does this product come in different sizes or colours? Add an attribute to offer more choices to your customers.</p>
+      <!--<p class="message">{{message}}</p>-->
+    </div>
+    <div class="form-row has-controls labels-only">
+      <div class="row">
+        <div class="col-md-4">
+          <label>Option Label</label>
+        </div>
+        <div class="col-md-8">
+          <label>Option Value</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row has-controls"  *ngFor="let attribute of attributeList; let i = index">
+      <div class="control-buttons" *ngIf="allowDelete()">
+         <button class="non-button float-right remove" (click)="removeAttributeList(attribute)" [disabled]="attribute.old" >
+          <span class="hidden">Delete</span>
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <div class="row" >
+        <div class="col-md-4">
+          <input class="form-control" [value]="attributeList[i].attributeType" disabled type="text" name="attributeType" placeholder="Size, Colour, etc..." /> 
+        </div>
+        <div class="col-md-8">
+          <tag-input (onRemove)="checkExisiting($event, i)" [(ngModel)]="selectedVariants[i]" name="{{attributeList[i].attributeLabel}}" 
+          [inputId]="attributeList[i].attributeLabel" [allowDupes]="false" [ngModelOptions]="{standalone: false}" [onlyFromAutocomplete]="true" 
+          name="{{attributeList[i].name}}" [displayBy]="'label'" [identifyBy]="'attributeValueID'" theme='bootstrap'
+          (onAdd)="updateTags($event,i)">
+            <tag-input-dropdown [displayBy]="'label'" [identifyBy]="'attributeValueID'" [focusFirstElement]="true" [autocompleteItems]="getAttributesForType(attributeList[i].attributeID)">              
+            </tag-input-dropdown>
+          </tag-input> 
+          <div class="sub-text saved-tags"><span *ngFor="let item of savedVariants[i]">{{item.label}}</span></div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!--<div class="form-row-sub-actions" *ngIf="allowNewAttributes()">
+      <button class="btn btn-link btn-small" (click)="op1.toggle($event)">
+        <i class="fal fa-plus-circle"></i> Add Another Option</button>
+        <p-overlayPanel #op1>
+          <div class="menu-panel">
+            <div class="row" *ngFor="let item of availableAttributes">
+              <div class="col-md-3 col-md-offset-9" *ngIf="notAdded(item)">
+                <button class="btn btn-link btn-small" (click)="addOption(item)">
+                  {{item.attributeType}}
+                  <i class="fal fa-plus-circle"></i>
+                </button>
+              </div>
+            </div>   
+          </div>
+        </p-overlayPanel>
+    </div>-->
+  </fieldset>
+  <div class="form-actions centered">
+    <button type="submit" class="btn btn-save" (click)="generateVariants()">
+      <i class="fal fa-clone"></i> Generate product items</button>
+  </div>
+  </form>

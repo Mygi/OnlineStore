@@ -1,0 +1,111 @@
+.container-fluid.footer {
+  background: $grey-blue;
+  color: $white;
+  padding: 60px 0;
+  @include filson-light;
+  .container {
+    @include clear;
+  }
+  a {
+    color: $white;
+  }
+  .logo {
+    margin-right: 65px;
+    float: left;
+    max-width: 360px;
+    display: inline-block;
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 150px;
+    }
+  }
+  .copyright {
+    float: left;
+    max-width: 360px;
+    padding-top: 20px;
+    p {
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    p:first-child {
+      @include small;
+      @include spaced;
+      @include filson-book;
+      font-size: 12px;
+    }
+  }
+  .links {
+    float: right;
+    @include clear;
+    width: 360px;
+    padding-top: 20px;
+    li {
+      @include small;
+      @include spaced;
+      @include filson-book;
+      font-size: 12px;
+      width: 50%;
+      float: left;
+      display: block;
+      padding-bottom: 10px;
+      a {
+        text-decoration: none;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .links {
+      width: auto;
+      li {
+        float: none;
+        width: 100%;
+      }
+    }
+    .logo {
+      margin-right: 40px;
+    }
+    .copyright {
+      //max-width: 300px;
+    }
+  }
+  @include mobile-medium {
+    padding: 35px 0;
+    .links {
+      padding-top: 0;
+      float: none;
+      widows: 100%;
+      text-align: center;
+      margin-bottom: 35px;
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+    }
+    .logo {
+      float: none;
+      margin: 0;
+      width: 100%;
+      max-width: none;
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .copyright {
+      max-width: none;
+      text-align: center;
+      float: none;
+      position: relative;
+      padding: 35px 0 0;
+      p {
+        &:first-child {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

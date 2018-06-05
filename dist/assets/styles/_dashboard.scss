@@ -1,0 +1,207 @@
+@import "variables";
+@import "mixins";
+
+.dashboard {
+  @include clear;
+  position: relative;
+  
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.dashboard-menu {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 240px;
+  height: 100%;
+  //background: $lightest-grey;
+
+  .hello {
+    //border: 20px solid rgba(0,0,0,0);
+    position: relative;
+    margin: 20px 0 20px 20px;
+    border: 10px solid $white;
+    @include shadow;
+    @include border-radius(50%);
+    h2 {
+      color: $white;
+      font-size: 20px;
+      padding: 15px;
+      margin: 0;
+    }
+    .image-wrap {
+      overflow: hidden;
+      img {
+        
+      }
+    }
+  }
+  ul {
+    @include full-reset;
+    list-style-type: none;
+    li {
+      list-style-type: none;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      &:last-child {
+        border: none;
+      }
+      a {
+        display: block;
+        padding: 12px 15px;
+        font-size: 12px;
+        color: $black;
+        position: relative;
+        text-transform: uppercase;
+        @include spaced;
+        @include flex-center;
+        @include filson-book;
+        .badge {
+          position: absolute;
+          right: 15px;
+          top: 13px;
+          background: $purple !important;
+          letter-spacing: 0;
+        }
+        .fal,
+        svg {
+          font-size: 24px;
+          width: 24px;
+          text-align: center;
+          margin-right: 15px;
+        }
+        &:hover {
+          text-decoration: none;
+          //background: $white;
+        }
+        &.active {
+          background: $light-grey;
+          //color: $white;
+        }
+        &.attention-required fal,
+        &.attention-required svg  {
+          //color: $red;
+        }
+      }
+      ul {
+        border: none;
+      }
+    }
+  }
+  @include mobile {
+    //z-index: 1000;
+    overflow: hidden;
+    width: 66px;
+    left: 0;
+    top: 0;
+    .hello {
+      display: none;
+    }
+    ul {
+      li {
+        border-color: rgba(255,255,255,0.2);
+        a {
+          overflow: hidden;
+          color: $white;
+          height: 66px;
+          width: 66px;
+          @include flex-center;
+          padding: 0;
+          .badge {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            right: auto;
+            //@include border-radius(0);
+            background: $magenta !important;
+            //opacity: 0.8;
+            overflow: hidden;
+            padding: 0;
+            width: 12px;
+            height: 12px;
+            text-indent: -10000px;
+          }
+          &.active {
+            color: $black;
+            background: $white;
+            border-color: $white;
+          }
+          .fal,
+          svg {
+            width: 66px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dashboard-content {
+  padding: 40px 40px 40px 300px;
+  //background: $lightest-grey;
+  min-height: 888px;
+  .shop-info {
+    float: right;
+    //color: $white;
+    padding-top: 7px;
+    @include mobile {
+      padding-top: 0;
+    }
+    h3 {
+      display: inline-block;
+      float: left;
+      margin: 0;
+      font-size: 14px;
+      //text-transform: uppercase;
+      padding: 0;
+      line-height: 36px;
+      @include filson-book;
+      margin-right: 30px;
+      //letter-spacing: 1px;
+      @include mobile {
+        display: none;
+      }
+    }
+    .btn {
+      display: inline-block;
+      float: left;
+      font-size: 14px;
+      line-height: 36px;
+      height: 36px;
+      padding: 0;
+      background: none;
+      color: $black !important;
+      margin-right: 30px;
+      text-transform: none;
+      letter-spacing: 0;
+      .badge {
+        background: $purple;
+        color: $white;
+        margin-left: 4px;
+        position: relative;
+        top: -1px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover,
+      &:active {
+        color: $black !important;
+        background: none !important;
+      }
+    }
+  }
+  .content-inner {
+    //background: $white;
+    //padding: 40px; 
+  }
+  @include mobile {
+    padding: 25px 5px;
+    border-left: 66px solid $medium-grey;
+  }
+}
+
+
+
+

@@ -1,0 +1,4 @@
+<div routerLink="/dashboard" class="my-account" [hidden]="!isAuthenticated" *ngIf="mode === 'toolabr'">
+  <i class="far fa-user"></i>
+</div>
+<a class="btn btn-primary hidden-small" routerLink="/login"  *ngIf="mode === 'button'" [style.display]="isAuthenticated ? 'none' : 'block'">Log in</a>

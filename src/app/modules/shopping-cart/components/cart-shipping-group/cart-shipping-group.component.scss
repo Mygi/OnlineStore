@@ -1,0 +1,20 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+.shipping-group {
+  > h3 {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+    @include filson-book;
+    //color: $blue;
+    //text-transform: uppercase;
+    //letter-spacing: 2px;
+    margin: 0;
+    padding: 25px 20px 5px;
+    //@include border-radius(30px);
+    background: $lightest-grey;
+    //color: $white;
+    & + .cart-item {
+      border-top: none;
+    }
+  }
+}

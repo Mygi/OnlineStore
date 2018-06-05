@@ -1,0 +1,14 @@
+<div class="row no-flex">
+  <ng-container *ngIf="categories">
+    <div *ngFor="let category of categories | slice:0:9; let i=index" class="col">
+      <div class="collection-item" routerLink="/collections/{{category.slug}}">
+        <div class="flex-center">
+          <span>{{category.name}}</span>
+        </div>
+        <div class="image-wrap square-crop">
+          <img alt="{{category.name}}" src="{{category.imageUrl}}">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

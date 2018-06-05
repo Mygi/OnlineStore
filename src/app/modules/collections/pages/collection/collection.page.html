@@ -1,0 +1,93 @@
+<div class="container product-list">
+  <h2 class="product-list-header">
+    <span>Collection Name</span>
+    <button class="btn filter-button" (click)="toggleFilter()">
+      <i class="fas fa-signal"></i> Filters</button>
+  </h2>
+  <div class="filters row" [ngStyle]="{'display':filtersOpen ? 'block' : 'none'}">
+    <div class="col-md-6">
+      <div class="input-group has-prefix">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-search"></i>
+          </span>
+        </div>
+        <input type="search" class="form-control" placeholder="Search...">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group has-prefix">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-dollar-sign"></i>
+          </span>
+        </div>
+        <select class="form-control">
+          <option>Price range...</option>
+          <option>Under $50</option>
+          <option>$50 to $100</option>
+          <option>$100 to $200</option>
+          <option>$200 and over</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group has-prefix">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-sort-amount-down"></i>
+          </span>
+        </div>
+        <select class="form-control">
+          <option>Sort by...</option>
+          <option>Newest</option>
+          <option>Most Popular</option>
+          <option>Product A-Z</option>
+          <option>Product Z-A</option>
+          <option>Price Low to High</option>
+          <option>Price High to Low</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row has-filters" [ngClass]="{'open':filtersOpen}">
+    <div class="refine-wrapper">
+      <div class="refine-filters">
+        <ul>
+          <li class="heading">Categories</li>
+          <li>
+            <a href="#">Candles</a>
+          </li>
+          <li>
+            <a href="#">Ceramics</a>
+          </li>
+          <li>
+            <a href="#">Furniture</a>
+          </li>
+          <li>
+            <a href="#">Homewares</a>
+          </li>
+          <li>
+            <a href="#">Lighting</a>
+          </li>
+          <li>
+            <a href="#">Pet Accessories</a>
+          </li>
+          <li>
+            <a href="#">Plants</a>
+          </li>
+          <li>
+            <a href="#">Publications &amp; Books</a>
+          </li>
+          <li>
+            <a href="#">Stationary</a>
+          </li>
+          <li>
+            <a href="#">Textiles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <app-product-grid-item class="col-md-3" *ngFor="let productItem of products | slice:0:24; let i=index" [product]="productItem"></app-product-grid-item>
+  </div>
+</div>

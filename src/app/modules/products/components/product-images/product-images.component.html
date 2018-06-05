@@ -1,0 +1,68 @@
+<form class="form">
+  <fieldset class="form-group">
+    <h3 class="form-group-heading">Image Gallery</h3>
+<div class="form-row product-image-list">
+
+   <div class="row">
+    <div class="col-md-6"  *ngFor="let item of images | gallerySort; let i = index">
+     <div class="gallery-image">
+      <div class="caption-container">
+        <em class="caption">{{item.caption | slice:0:50}}</em>
+      </div>
+      <div class="product-image-control"  pDroppable="dd" pDraggable="dd" (onDrag)="startDrag(item, i)" (onDrop)="swap(item, i)" dragHandle=".sort-gallery" [ngClass]="{'add-caption':isEditing(i)}">
+        <div class="image-controls control-buttons">
+          <button class="non-button float-left caption" (click)="changeEditing(true,i)">
+            <span class="hidden">Caption</span>
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <!--<button class="non-button float-left sort sort-gallery">
+            <span class="hidden">Sort</span>
+            <i class="far fa-arrows"></i>
+          </button> 
+          LT - NOT ENOUGH ROOM FOR THIS - CAN WE MOVE THE WHOLE DIV INSTEAD? -->
+          <button class="non-button float-right remove" (click)="deleteImage(item)">
+            <span class="hidden">Delete</span>
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+        <div class="image-wrap square-crop" (click)="display2=!display2;displayImage=item.url;displayCaption=item.caption;">
+          <img [src]="item.url">
+        </div>
+        <input class="form-control" [(ngModel)]="item.caption" name="caption" type="text" (blur)="updateImage(item); changeEditing(false,i)" placeholder="Enter new caption here...">
+      </div>
+      </div>
+    </div>
+    
+    <div class="col-md-12">
+        <div class="product-image-control">
+          <div class="no-image-selected no-border">
+            <button class="btn btn-secondary" (click)="display=true">
+              <i class="fas fa-image"></i> Select Images
+            </button>
+          </div>
+        </div>
+    </div>
+    
+    
+    </div>
+
+</div>
+</fieldset>
+</form> 
+
+<app-fk-dialog header="Add Images" [(visible)]="display" [width]="600" [height]="500">
+  <app-image-upload-modal [endPoint]="endPoint" (imageUpdated)="updateImages($event)"></app-image-upload-modal>
+  </app-fk-dialog>
+  <app-fk-dialog header="Image Preview" [(visible)]="display2" [width]="600" [height]="600">
+        <section class="product-image">
+          <div class="product-image-slide">
+            <div class="image-wrap square-crop">
+              <img [src]="displayImage">
+            </div>
+            <div class="captionLarge">
+              <i class="fal fa-camera-alt fa-2x"></i>{{ displayCaption }}
+            </div>
+          </div>  
+        </section>
+  </app-fk-dialog>
+      

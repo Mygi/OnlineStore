@@ -1,0 +1,119 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.collections {
+  background: $light-grey;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .home-product-list {
+    margin-bottom: 0;
+  }
+  @include mobile {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+.home-product-list {
+  margin-bottom: 40px;
+  h2 {
+    position: relative;
+    margin-bottom: 40px;
+    @include filson-medium;
+    font-size: 40px;
+    text-transform: lowercase;
+    overflow: hidden;
+    .btn {
+      float: right;
+      position: relative;
+      z-index: 10; //margin-right: -1px;
+    }
+    span {
+      position: relative;
+      z-index: 10;
+      padding-right: 30px;
+      background: $white;
+      display: inline-block;
+    }
+    &:after {
+      height: 1px;
+      background: $black;
+      position: absolute;
+      top: 50%;
+      margin-top: 2px;
+      right: 170px;
+      width: 100%;
+      content: "";
+      opacity: 0.3;
+    }
+  }
+  &.grey-blue {
+    padding-top: 80px;
+  }
+  &.green h2 {
+    color: $green;
+    &:after {
+      background: $green;
+    }
+  }
+  &.grey-blue h2 {
+    color: $grey-blue;
+    &:after {
+      background: $grey-blue;
+    }
+  }
+  &.magenta h2 {
+    color: $magenta;
+    &:after {
+      background: $magenta;
+    }
+  }
+  &.blue h2 {
+    color: $blue;
+    &:after {
+      background: $blue;
+    }
+    span {
+      background: $light-grey;
+    }
+  }
+  @include mobile {
+    margin-bottom: 25px;
+    &.grey-blue {
+      padding-top: 25px;
+    }
+  }
+  @include mobile-medium {
+    position: relative;
+    padding-bottom: 50px;
+    h2 {
+      position: static;
+      font-size: 35px;
+      &:before,
+      &:after {
+        display: none;
+      }
+      margin-bottom: 30px;
+      .btn {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        display: block;
+        right: 20px;
+      }
+    }
+  }
+  @include mobile-small {
+    h2 {
+      font-size: 25px;
+      margin-bottom: 25px;
+      .btn {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        display: block;
+        right: 20px;
+      }
+    }
+  }
+}

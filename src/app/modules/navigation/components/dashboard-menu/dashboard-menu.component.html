@@ -1,0 +1,14 @@
+<div class="dashboard-menu">
+  <div class="hello">
+    <div class="image-wrap square-crop circle">
+      <img [src]="imageUrl" >
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let route of getMenuItems()">
+      <a routerLink="{{route.path}}" [routerLinkActive]="route.path === '' ? '' : 'active'">
+        <i class="fal" [ngClass]="route.data.icon"></i>{{route.data.menuName}}
+      </a>
+    </li>
+  </ul>
+</div>

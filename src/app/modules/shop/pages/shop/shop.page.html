@@ -1,0 +1,123 @@
+<div class="container-fluid shop">
+  <div class="shop-header">
+    <div class="container">
+
+      <h2>{{shop.name}}</h2>
+      
+    </div>
+  </div>
+  <div class="shop-message">
+    <div class="container" *ngIf="!shop.shopOpen">
+      <i class="fas fa-clock"></i>
+      <strong>Shop Closed</strong> &ndash; We are away on holidays at the moment and will be back in business on March 22nd.
+    </div>
+  </div>
+  <div class="container">
+    <div class="shop-description">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="profile-image">
+            <div class="image-wrap square-crop circle">
+              <img [src]="shop.shopImage">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <h3>About {{shop.name}}</h3>
+          <p>{{shop.shopDescription}}</p>
+        </div>
+      </div>
+    </div>
+    <h2 class="product-list-header">
+      <span>Our Products</span>
+      <button class="btn filter-button">
+        <i class="fas fa-signal"></i> Filters</button>
+    </h2>
+    <div class="filters row">
+      <div class="col-md-6">
+        <div class="input-group has-prefix">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="far fa-search"></i>
+            </span>
+          </div>
+          <input type="search" class="form-control" placeholder="Search...">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-group has-prefix">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="far fa-dollar-sign"></i>
+            </span>
+          </div>
+          <select class="form-control">
+            <option>Price range...</option>
+            <option>Under $50</option>
+            <option>$50 to $100</option>
+            <option>$100 to $200</option>
+            <option>$200 and over</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="input-group has-prefix">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="far fa-sort-amount-down"></i>
+            </span>
+          </div>
+          <select class="form-control">
+            <option>Sort by...</option>
+            <option>Newest</option>
+            <option>Most Popular</option>
+            <option>Product A-Z</option>
+            <option>Product Z-A</option>
+            <option>Price Low to High</option>
+            <option>Price High to Low</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row has-filters">
+      <div class="refine-wrapper">
+        <div class="refine-filters">
+          <ul>
+            <li class="heading">Categories</li>
+            <li *ngFor="let item of shop.shopCategories">
+              <a href="#">{{item}}</a>
+            </li>
+            <li>
+              <a href="#">Ceramics</a>
+            </li>
+            <li>
+              <a href="#">Furniture</a>
+            </li>
+            <li>
+              <a href="#">Homewares</a>
+            </li>
+            <li>
+              <a href="#">Lighting</a>
+            </li>
+            <li>
+              <a href="#">Pet Accessories</a>
+            </li>
+            <li>
+              <a href="#">Plants</a>
+            </li>
+            <li>
+              <a href="#">Publications &amp; Books</a>
+            </li>
+            <li>
+              <a href="#">Stationary</a>
+            </li>
+            <li>
+              <a href="#">Textiles</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <app-product-grid-item class="col-md-3" *ngFor="let productItem of products | slice:0:24; let i=index" [product]="productItem"></app-product-grid-item>
+    </div>
+  </div>
+</div>

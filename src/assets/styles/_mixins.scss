@@ -1,0 +1,354 @@
+//FONTS
+@import "variables";
+@mixin filson-light {
+  font-family: "filson-soft", sans-serif;
+  font-style: normal;
+  font-weight: 200;
+}
+
+@mixin filson-book {
+  font-family: "filson-pro", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin filson-medium {
+  font-family: "filson-pro", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin filson-bold {
+  font-family: "filson-pro", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+}
+
+@mixin small {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+@mixin spaced {
+  letter-spacing: 2px;
+}
+
+@function tint($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@mixin linearGradient($top, $bottom){
+  background: $top;
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%) !important;
+  background: -webkit-linear-gradient(top, $top 0%,$bottom 100%) !important;
+  background: linear-gradient(to bottom, $top 0%,$bottom 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=1 ) !important;
+}
+
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-center {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  align-items: center;
+}
+
+@mixin flex-justify {
+  justify-content: center;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-center-justify {
+  @include flex-center;
+  @include flex-justify;
+}
+
+@mixin inline-list {
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    list-style: none;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin clear {
+  &:before,
+  &:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+  *zoom: 1;
+}
+
+@mixin ease-fast {
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+@mixin ease-slow {
+  -webkit-transition: all 450ms ease-in-out;
+  -moz-transition: all 450ms ease-in-out;
+  -ms-transition: all 450ms ease-in-out;
+  -o-transition: all 450ms ease-in-out;
+  transition: all 450ms ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+@mixin ease {
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+@mixin no-ease {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+@mixin underline-hover {
+  @include ease-fast;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid rgba(0,0,0,0);
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    text-decoration: none;
+    border-color: rgba(0,0,0,0.2);
+  }
+}
+
+@mixin full-reset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  outline: none;
+  list-style: none;
+}
+
+@mixin fk-input {
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  padding: 0 15px;
+  background-color: $white;
+  border: 1px solid $purple;
+  font-family: "filson-soft", sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  color: $black;
+  font-size: 15px;
+  @include border-radius($border-radius);
+  @include ease;
+  &[type="number"] {
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button, 
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  }
+  &:hover,
+  &:focus {
+    border-color: $black;
+    box-shadow: 0 0 1px $black;
+    outline: none !important;
+  }
+  @include placeholder {
+    color: rgba(0,0,0,0.5);
+    font-family: "filson-soft", sans-serif;
+    font-style: normal;
+    font-weight: 200;
+  }
+}
+
+@mixin shadow {
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: none;
+}
+
+@mixin card {
+  @include shadow;
+  @include border-radius($border-radius);
+  overflow: hidden;
+}
+
+.centered {
+  text-align: center;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+
+.add-to-wishlist {
+  &:hover {
+    .outline-heart,
+    .full-heart {
+      transform: scale(1.15);
+    }
+  }
+  .outline-heart {
+    @include ease;
+  }
+  .fly-away {
+    position:absolute;
+    color: $red;
+    opacity:0;
+    @include ease;
+    z-index: 12;
+  }
+  .full-heart {
+    opacity: 0;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    z-index: 10;
+    @include ease;
+    color: $red;
+  }
+  &.added {
+    .fly-away {
+      opacity:0; 
+      animation: fly 0.7s ease-out;
+    }
+    .full-heart {
+      opacity: 1;
+    }
+    .outline-heart {
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes fly{
+  0% {
+    opacity:0; 
+    transform: translateY(-10px)  translateX(0) rotateZ(5deg);
+  }
+  10% {
+    opacity:0.3;
+    transform: translateY(-20px) translateX(-3px) rotateZ(10deg);
+  }
+  20% {
+    opacity:0.5;
+    transform: translateY(-30px) translateX(-6px) rotateZ(15deg);
+  }
+  30%{
+    opacity: 0.7;
+    transform: translateY(-40px) translateX(-9px) rotateZ(10deg);
+  }
+  40%{
+    opacity: 0.9;
+    transform: translateY(-50px) translateX(-6px) rotateZ(5deg);
+  }
+  50%{
+    opacity: 0.9;
+    transform: translateY(-60px) translateX(-3px) rotateZ(0deg);
+  }
+  60%{
+    opacity:0.7; 
+    transform: translateY(-70px)  translateX(0) rotateZ(-5deg);
+  }
+  70%{
+    opacity:0.5;
+    transform: translateY(-80px) translateX(3px) rotateZ(-10deg);
+  }
+  80%{
+    opacity:0.3;
+    transform: translateY(-90px) translateX(6px) rotateZ(-15deg);
+  }
+  90%{
+    opacity: 0;
+    transform: translateY(-100px) translateX(9px) rotateZ(-10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px) translateX(0px) rotateZ(0deg);
+    z-index: 0;
+  }
+}

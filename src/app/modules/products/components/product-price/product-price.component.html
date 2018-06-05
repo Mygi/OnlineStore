@@ -1,0 +1,38 @@
+<form class="form" #productPriceForm="ngForm">
+<fieldset class="form-group">
+<h3 class="form-group-heading">Pricing</h3>
+<div class="form-row">
+<div class="row">
+  <div class="col-md-5">
+    <label>Price</label>
+    <div class="input-group has-prefix" *ngIf="productItem.originalPrice !== undefined">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="far fa-dollar-sign"></i>
+        </span>
+      </div>
+      <input class="form-control" [(ngModel)]="productItem.originalPrice.value" name="price" type="text" placeholder="0.00">
+    </div>
+  </div>
+  <div class="col-md-5">
+    <label>Sale Price</label>
+    <div class="input-group has-prefix" *ngIf="productItem.discountPrice !== undefined">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="far fa-dollar-sign"></i>
+        </span>
+      </div>
+      <input class="form-control" [(ngModel)]="productItem.discountPrice.value" name="salePrice" type="text" placeholder="0.00">
+    </div>
+  </div>
+  <div class="col-md-2 right-aligned">
+    <label>On Sale</label>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="productItem.onSale" name="onSale">
+      <span class="slider"></span>
+    </label>
+  </div>
+</div>
+</div>
+</fieldset>
+</form>

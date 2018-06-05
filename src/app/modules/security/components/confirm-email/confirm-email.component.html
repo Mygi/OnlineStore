@@ -1,0 +1,9 @@
+<form class="form card-style" #emailForm="ngForm">
+  <fieldset class="form-group">
+    <div class="form-row">
+      <label>Confirm your new Email Address: {{emailAddress}}
+      </label>
+    </div>    
+    <app-form-save [isValid]="emailForm.valid && userId!==undefined" [btnLabel]="'Update Email Address'" (saveTrigger)="send($event)"></app-form-save>
+  </fieldset>
+</form>

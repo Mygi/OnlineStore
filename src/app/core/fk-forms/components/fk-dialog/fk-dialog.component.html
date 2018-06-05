@@ -1,0 +1,21 @@
+<div class="fk-modal"  [style.display]="visible ? 'block' : 'none'">
+<div #container [ngClass]="{'ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow fk-modal-wrapper':true, 'ui-dialog-rtl':rtl,'ui-dialog-draggable':draggable}"
+  [style.display]="visible ? 'block' : 'none'" [class]="styleClass" (mousedown)="moveOnTop()" [@dialogState]="visible ? 'visible' : 'hidden'"
+  role="dialog" [attr.aria-labelledby]="id + '-label'">
+    <div class="fk-modal-header" #titlebar (mousedown)="initDrag($event)" *ngIf="showHeader">
+      <h3>{{header}}</h3>
+      <button class="non-button close-button" (click)="close($event)" (mousedown)="onCloseMouseDown($event)" *ngIf="closable">
+        <i class="fal fa-times"></i>
+      </button>
+    </div>
+  <div #content class="ui-dialog-content ui-widget-content fk-modal-inner" [ngStyle]="contentStyle">
+    <ng-content></ng-content>
+  </div>
+  <div class="ui-dialog-footer ui-widget-content" *ngIf="footerFacet && footerFacet.first">
+    <ng-content select="p-footer"></ng-content>
+  </div>
+  <!--<div *ngIf="resizable" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"
+    (mousedown)="initResize($event)"></div>-->
+</div>
+
+</div>

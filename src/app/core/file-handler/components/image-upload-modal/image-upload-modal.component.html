@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-3" *ngFor="let image of images">
+    <div class="product-image-control">
+      <div class="image-wrap square-crop">
+        <img [src]="image.data">
+      </div>
+    </div>
+  </div>
+</div>
+<kendo-upload #kendoUploadInstance="kendoUpload" [multiple]="true" [autoUpload]="false" [saveUrl]="endPoint" [restrictions]="uploadRestrictions"
+  (select)="selectEventHandler($event)" (upload)="uploadEventHandler($event)" [withCredentials]="false" (clear)="clearEventHandler($event)"
+  (remove)="removeEventHandler($event)" (complete)="clearHandler(kendoUploadInstance)" (success)="completeEventHandler($event, kendoUploadInstance)">
+</kendo-upload>

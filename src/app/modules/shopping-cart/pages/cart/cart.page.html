@@ -1,0 +1,14 @@
+<div class="container-fluid cart">
+  <div class="container">
+    <h2 class="page-header">Cart</h2>
+    <div class="row">
+      <div class="col-md-9">
+        <!-- SELLER BLOCK -->
+        <app-cart *ngFor="let seller of cartitems" [sellerName]="seller"></app-cart>
+      </div>
+      <div class="col-md-3">
+        <app-cart-totals></app-cart-totals>
+      </div>
+    </div>
+  </div>
+</div>

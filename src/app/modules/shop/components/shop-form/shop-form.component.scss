@@ -1,0 +1,140 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+.form-group p{
+  margin: 20px;
+}
+.shop-header {
+  background: $light-grey;
+  margin: 1px 0;
+  padding: 30px 0;
+  .container {
+    @include flex-center;
+    position: relative;
+  }
+  .profile-image {
+    width: 100px;
+    margin: 0 25px 0 0;
+  }
+  h2 {
+    display: inline-block;
+    @include filson-bold;
+    font-size: 36px;
+    padding-right: 60px;
+    margin: 0;
+    @include mobile-medium {
+      font-size: 25px;
+    }
+  }
+  .message-center { 
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    right: $side-gutter;
+    width: 40px;
+    height: 40px;
+    background: $black;
+    font-size: 22px;
+    @include flex-center;
+    @include flex-justify;
+    @include border-radius(50%);
+    color: $white;
+    cursor: pointer;
+    @include ease;
+    &:hover {
+      background: $blue;
+    }
+    @include mobile {
+      right: $side-gutter-small;
+    }
+  }
+}
+
+.shop-header + .container,
+.shop-message + .container {
+  padding-top: 60px;
+  padding-bottom: 50px;
+  @include mobile {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.shop-message {
+  //text-align: center;
+  padding: 15px 0;
+  background: $black;
+  color: $white;
+  @include filson-light;
+  font-size: 16px;
+  line-height: 1.5;
+  strong {
+    @include filson-book;
+    text-transform: uppercase;
+    //margin-right: 10px;
+  }
+  i,
+  svg {
+    font-size: 22px;
+    margin-right: 6px;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.shop-description {
+  //max-width: 800px;
+  .profile-image {
+    padding: 20px;
+  }
+  h3 {
+    font-size: 20px;
+    @include filson-book;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    // &:first-child {
+    //   //font-size: 20px;
+    //   //@include filson-book;
+    // }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  margin-bottom: 50px;
+  @include mobile {
+    p {
+      font-size: 15px;
+    }
+    .row {
+      .col-md-3 {
+        width: 30% !important;
+      }
+      .col-md-8 {
+        width: 70% !important;
+        float: left;
+      }
+    }
+  }
+  @include mobile-medium {
+    p {
+      font-size: 15px;
+    }
+    .row {
+      .col-md-3 {
+        width: 100% !important;
+        float: none;
+      }
+      .col-md-8 {
+        width: 100% !important;
+        float: none;
+      }
+    }
+  }
+}
+.dynamic-column {
+    padding-bottom:20px;
+}

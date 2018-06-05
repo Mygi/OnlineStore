@@ -1,0 +1,302 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/forms";
+
+.messages-sidebar {
+  padding-right: 20px;
+  > button {
+    margin: 5px 5px 20px;
+    width: calc(100% - 10px);
+    display: block;
+  }
+  .simplebar {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  ul {
+    @include full-reset;
+    padding: 5px 20px 5px 5px;
+    li {
+      padding: 15px 15px 15px 15px;
+      //background: $white;
+      margin-bottom: 10px;
+      position: relative;
+      list-style: none;
+      @include border-radius($border-radius);
+      cursor: pointer;
+      @include ease;
+      position: relative;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:after {
+        height: 1px;
+        background: rgba(0, 0, 0, 0.05);
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 15px;
+        right: 15px;
+      }
+      &:last-child,
+      &.active {
+        &:after {
+          display: none;
+        }
+      }
+      &.active {
+        margin-top: -10px;
+        margin-bottom: 5px;
+        &:first-child {
+          margin-top: 0;
+          margin-bottom: 10px;
+        }
+      }
+      &:hover {
+        //@include shadow;
+        opacity: 0.7;
+      }
+      .user-info {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 40px;
+      }
+      .message-subject {
+        margin: 0 0 5px;
+        font-size: 15px;
+        @include filson-light;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0;
+      }
+      .message-correspondent {
+        @include filson-light;
+        margin: 0 0 7px;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .meta {
+        margin: 0;
+        color: $dark-grey;
+        i,
+        svg {
+          display: none;
+        }
+      }
+      &.active {
+        @include card;
+        background: $lightest-grey;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      &.unread {
+        .message-correspondent {
+          @include filson-book;
+        }
+        .message-subject {
+          @include filson-book;
+        }
+      }
+      i,
+      svg {
+        position: relative;
+        top: -1px;
+        margin-right: 2px;
+      }
+      &.from-fk {
+        color: $magenta;
+      }
+    }
+  }
+}
+
+.message-centre {
+  .message-actions {
+    float: right;
+    margin-top: 8px;
+    margin-left: 10px;
+  }
+  .message-subject {
+    padding: 10px 0 0;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    @include filson-medium;
+    //color: $blue;
+  }
+  .message-correspondent {
+    margin-bottom: 5px;
+    //text-transform: uppercase;
+    font-size: 14px;
+    //letter-spacing: 2px;
+    @include filson-book;
+  }
+  .message-from {
+    margin-bottom: 30px;
+    font-size: 14px;
+    strong {
+      @include filson-book;
+      @include underline-hover;
+      //color: $link-colour;
+    }
+  }
+  .meta {
+    margin-bottom: 10px;
+    font-size: 12px;
+    @include filson-light;
+    i,
+    svg {
+      font-size: 16px;
+      margin-right: 4px;
+      position: relative;
+      top: 1px;
+    }
+  }
+  .messages {
+    //max-height: 400px;
+    margin-bottom: 40px;
+    position: relative;
+    &.scrolled {
+      padding-right: 20px;
+      overflow-y: auto;
+      &:before {
+        width: 100%;
+        height: 20px;
+        box-shadow: 0 0 100px $light-grey;
+        content: "";
+        display: block;
+        bottom: -20px;
+        left: 0;
+        z-index: 1000;
+      }
+    }
+  }
+  .message {
+    @include card;
+    background: $lightest-grey;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 90px;
+    min-height: 80px;
+    //margin-right: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    p {
+      &:last-child {
+        margin: 0;
+      }
+    }
+    .user-info {
+      position: absolute;
+      top: 17px;
+      left: 17px;
+      width: 50px;
+    }
+    .meta {
+      color: $dark-grey;
+    }
+    &.mine {
+      margin-right: 0;
+      margin-left: 30px;
+      background: $purple;
+      color: $white;
+      padding-left: 20px;
+      .meta {
+        color: $white;
+        opacity: 0.8;
+      }
+      .user-info {
+        display: none !important;
+      }
+      &.attachment {
+        text-align: right;
+        @include clear;
+        padding-left: 90px;
+        .attachment-icon {
+          //display: none;
+        }
+        a {
+          float: right;
+        }
+      }
+    }
+    &.attachment {
+      .attachment-icon {
+        position: absolute;
+        top: 17px;
+        left: 17px;
+        width: 50px;
+        height: 50px;
+        @include flex-center;
+        @include flex-justify;
+        background: rgba(0,0,0,0.2);
+        color: $white;
+        font-size: 26px;
+        @include border-radius(50%);
+      }
+      a.image {
+        max-width: 400px;
+        display: block;
+        @include ease;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      .image-wrap {
+        @include border-radius($border-radius);
+        overflow: hidden;
+        //border: 1px solid rgba(0,0,0,0.2);
+        @include shadow;
+      }
+    }
+  }
+}
+
+.send-message {
+  .row {
+    margin-right: -10px;
+    margin-left: -10px;
+    .col, .col-1, .col-2, .col-md-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-auto, .col-lg, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-auto, .col-md, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md-auto, .col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-auto {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  position: relative;
+  .drop-area {
+    //max-width: 200px;
+    margin-bottom: 20px;
+    height: 100px;
+    padding-top: 0;
+    i,
+    svg {
+      font-size: 26px;
+    }
+  }
+  .form-control {
+    padding-right: 50px;
+    min-height: 100px;
+  }
+  button.non-button {
+    position: absolute;
+    bottom: 7px;
+    right: 22px;
+    font-size: 20px;
+    //color: $blue;
+    @include ease;
+    &:hover {
+      opacity: 0.7;
+    }
+    &.attach {
+      //font-size: 22px;
+      bottom: 36px;
+    }
+  }
+}

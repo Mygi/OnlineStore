@@ -1,0 +1,5 @@
+<div class="shipping-group">
+  <h3 class="group-name">{{shippingType}}</h3>
+  <app-cart-item *ngFor="let product of products"></app-cart-item>
+  <app-shipping-options [shippingType]="shippingType"></app-shipping-options>
+</div>

@@ -1,0 +1,58 @@
+.container-fluid.top-bar {
+  @include clear;
+  background: $grey-blue;
+  padding: 0 $side-gutter;
+  height: 42px;
+  @include flex-center;
+  text-align: center;
+  color: $white;
+  @include small;
+  a {
+    color: $white;
+    .material-icons {
+      font-size: 20px;
+      float: left;
+      position: relative;
+      top: 0;
+      margin-right: 4px;
+    }
+  }
+  p {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    font-size: 14px;
+    @include spaced;
+  }
+  > a {
+    float: left;
+    position: relative;
+    z-index: 10;
+  }
+  ul {
+    position: absolute;
+    right: $side-gutter;
+    @include inline-list;
+    //position: relative;
+    z-index: 10;
+    li {
+      margin-left: 6px;
+      &:fist-child {
+        margin-left: 0;
+      }
+    }
+    @include mobile {
+      right: $side-gutter-small;
+    }
+  }
+  @include mobile {
+    padding: 10px $side-gutter-small;
+    p {
+      position: relative;
+      text-align: left;
+    }
+  }
+}

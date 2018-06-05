@@ -1,0 +1,175 @@
+{
+    "data": [
+        {
+            "specificationTypeID": 1,
+            "value": "Weight",
+            "userDefined": false,
+            "isActive": true,
+            "units": {
+                "data": [
+                    {
+                        "specificationUnitID": 1,
+                        "unit": "g",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 1,
+                                "value": "Weight",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    },
+                    {
+                        "specificationUnitID": 2,
+                        "unit": "kg",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 1,
+                                "value": "Weight",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "specificationTypeID": 2,
+            "value": "Height",
+            "userDefined": false,
+            "isActive": true,
+            "units": {
+                "data": [
+                    {
+                        "specificationUnitID": 3,
+                        "unit": "mm",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 2,
+                                "value": "Height",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    },
+                    {
+                        "specificationUnitID": 4,
+                        "unit": "cm",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 2,
+                                "value": "Height",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "specificationTypeID": 3,
+            "value": "Depth",
+            "userDefined": false,
+            "isActive": true,
+            "units": {
+                "data": [
+                    {
+                        "specificationUnitID": 5,
+                        "unit": "mm",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 3,
+                                "value": "Depth",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    },
+                    {
+                        "specificationUnitID": 6,
+                        "unit": "cm",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 3,
+                                "value": "Depth",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "specificationTypeID": 4,
+            "value": "Length",
+            "userDefined": false,
+            "isActive": true,
+            "units": {
+                "data": [
+                    {
+                        "specificationUnitID": 7,
+                        "unit": "mm",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 4,
+                                "value": "Length",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    },
+                    {
+                        "specificationUnitID": 8,
+                        "unit": "cm",
+                        "userDefined": false,
+                        "isActive": true,
+                        "type": {
+                            "data": {
+                                "specificationTypeID": 4,
+                                "value": "Length",
+                                "userDefined": false,
+                                "isActive": true
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "specificationTypeID": 5,
+            "value": "Width",
+            "userDefined": false,
+            "isActive": true,
+            "units": {
+                "data": []
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 5,
+            "count": 5,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": []
+        }
+    }
+}

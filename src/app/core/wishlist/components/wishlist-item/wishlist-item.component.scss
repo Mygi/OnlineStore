@@ -1,0 +1,121 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.product-grid-item {
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 40px;
+  .product-image {
+    margin-bottom: 25px;
+    @include ease;
+    background: $dark-grey;
+    .secondary-image {
+      transition: all .4s ease-in-out;
+      opacity: 0;
+      transform: scale(1.2);
+    }
+    .image-wrap {
+      opacity: 1;
+    }
+  }
+  &:hover {
+    .product-image {
+      //background: $green;
+      .secondary-image {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  .badge {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    z-index: 10;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 12px;
+    padding-right: 12px;
+    @include filson-book;
+    padding-bottom: 5px;
+    @include border-radius(16px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include linearGradient($medium-grey, tint($medium-grey, 10%));
+    &.on-sale {
+      @include linearGradient($magenta, tint($magenta, 10%));
+    }
+    &.sold-out {
+      left: 16px;
+      & + .product-image {
+        //opacity: 0.7;
+        //-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        //filter: grayscale(100%);
+      }
+    }
+  }
+  
+  //// For mockup proposes only
+  .badge {
+    display: none;
+  }
+  &.on-sale-true {
+    .badge.on-sale {
+      display: block;
+    }
+  }
+  &.sold-out-true-0 {
+    .badge.sold-out {
+      display: block;
+      & + .product-image {
+        opacity: 0.7;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
+    }
+  }
+  .add-to-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    color: $white;
+    z-index: 10;
+    cursor: pointer;
+    @include ease;
+    .outline-heart {
+      -webkit-filter: drop-shadow( 1px 1px 2px rgba(0,0,0,0.2) ); 
+      filter: drop-shadow( 1px 1px 2px rgba(0,0,0,0.2) );
+    }
+    .full-heart {
+      top: 10px;
+      left: 10px;
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .product-name {
+    text-transform: uppercase;
+    font-size: 14px;
+    @include filson-medium;
+    cursor: pointer;
+  }
+  .product-price {
+    font-size: 14px;
+    text-transform: uppercase;
+    @include filson-medium;
+    float: right;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  .seller {
+    @include small;
+    @include spaced;
+    font-size: 11px;
+    padding-top: 5px;
+    cursor: pointer;
+    @include underline-hover;
+  }
+}

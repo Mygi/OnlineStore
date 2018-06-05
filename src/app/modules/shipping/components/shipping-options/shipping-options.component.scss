@@ -1,0 +1,13 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/forms";
+.shipping-options {
+  padding: 20px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  //border-bottom: 1px solid rgba(255,255,255,0.7);
+  &:last-child {
+    border-bottom: none;
+  }
+  background: $light-grey;
+  position: relative;
+}

@@ -1,0 +1,17 @@
+<!--NB: this is taken from product-grid-item But is subject to change once the wishlist spec is better described-->
+<!--NB: This will become more genriced to be a Card once we understand the fundamentals-->
+<div class="product-grid-item on-sale-{{ product.onSale }} sold-out-{{ product.trackInventory }}-{{ product.stock }}">
+  <app-wishlist-selecter [item]="product"> </app-wishlist-selecter>
+  <!-- badges-->
+  <div class="on-sale badge" ng-if="onSale === true">SALE!</div>
+  <div class="sold-out badge" ng-if="product.trackInventory === true && product.stock === 0">Sold Out</div>
+  <div class="product-image" routerLink="/product/{{product.productID}}">
+    <div class="image-wrap square-crop">
+      <img class="main-image" alt="{{ product.title }}" [src]="product.mainImage">
+      <img class="secondary-image" alt="{{ product.title }}" [src]="product.secondaryImageUrl">
+    </div>
+  </div>
+  <div class="product-price" routerLink="/product/{{product.productID}}">${{ product.originalPrice }}</div>
+  <div class="product-name" routerLink="/product/{{product.productID}}">{{ product.title }}</div>
+  <div class="seller" routerLink="/shop/{{product.shopName}}">by {{ product.shopName }}</div>
+</div>

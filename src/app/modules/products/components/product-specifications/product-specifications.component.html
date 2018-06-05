@@ -1,0 +1,70 @@
+
+<form class="form">
+<fieldset class="form-group specs">
+  <h3 class="form-group-heading">Specifications</h3>
+           <button class="btn btn-link btn-small" (click)="op2.toggle($event)" *ngIf="productItem.specifications.data.length < specifications.length ">
+              <i class="fal fa-plus-circle"></i> Add Specifications
+            </button>
+            <p-overlayPanel #op2>
+              <div class="menu-panel">
+                  <div *ngFor="let spec of specifications">
+                    <div accesskey="" *ngIf="canAdd(spec)">
+                      <button class="tag" (click)="addSpec(spec)">
+                        {{spec.value}}
+                        <i class="fal fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+              </div>
+            </p-overlayPanel>
+            <div class="form-row">
+              <p>Info text for product specs...</p>
+            </div>
+            <div class="form-row has-controls" *ngFor="let item of productItem.specifications.data; let i = index">
+              <div class="control-buttons">
+                <!-- <button class="non-button float-left sort">
+                  <span class="hidden">Sort</span>
+                  <i class="far fa-arrows"></i>
+                </button> -->
+                <button (click)="deleteSpec(productItem.specifications.data[i])" class="non-button float-right remove">
+                  <span class="hidden">Delete</span>
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input class="form-control" type="text" disabled [value]="getSpecificationType(item)"  name="specType">
+                </div>
+                <div class="col-md-3">
+                  <input class="form-control" [(ngModel)]="productItem.specifications.data[i].value" name="{{'specificationValue' + i}}">
+                </div>
+                <div class="col-md-3">
+                   <select class="form-control" [(ngModel)]='productItem.specifications.data[i].unit.data.specificationUnitID' name="{{'unit' + i}}">
+                     <!-- [selected]="productItem.specifications.data[i].unit.data.specificationUnitID=== unit.specificationUnitID" -->
+                    <option *ngFor="let unit of getUnits(item)" [selected]="productItem.specifications.data[i].unit.data.specificationUnitID=== unit.specificationUnitID"  [value]="unit.specificationUnitID">{{unit.unit}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            
+            <!-- <div class="form-row-sub-actions">
+             
+              <button class="btn btn-link btn-small" (click)="op.toggle($event)" *ngIf="productItem.specifications.data.length < specifications.length">
+                <i class="fal fa-plus-circle"></i> Add Another Spec</button>
+                <p-overlayPanel #op>
+                  <div class="menu-panel">
+                  <div class="row" *ngFor="let spec of specifications" >
+                    <div class="col-md-3 col-md-offset-9" *ngIf="canAdd(spec)" >
+                    <button class="btn btn-link btn-small" (click)="addSpec(spec)">
+                       {{spec.value}}<i class="fal fa-plus-circle"></i> </button>
+                    </div>
+                  </div>
+                  </div>
+                </p-overlayPanel>
+            </div> -->
+
+</fieldset>
+</form>

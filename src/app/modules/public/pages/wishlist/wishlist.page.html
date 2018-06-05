@@ -1,0 +1,8 @@
+<div class="container product-list">
+  <h2 class="product-list-header">
+    <span>Wishlist</span>    
+  </h2>
+    <div class="row">
+       <app-product-grid-item class="col-md-3" *ngFor="let productItem of products | slice:0:4; let i=index" [product]="productItem"></app-product-grid-item>
+    </div>
+</div>

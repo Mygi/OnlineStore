@@ -1,0 +1,16 @@
+      <div class="input-group has-prefix">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="far fa-tag"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" placeholder="Add a tag">
+        <div class="tagSearch">
+          <ul>
+            <li *ngFor="let tag of searchableTags" [hidden]="true"> 
+              {{tag.tag}}
+            </li>
+          </ul>
+        </div>
+      </div>
+   

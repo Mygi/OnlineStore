@@ -1,0 +1,81 @@
+<header class="container-fluid header">
+  <button class="non-button menu-button menu-focus" [ngClass]="{'open':isOpen}" (click)="toggleMenu()">
+    <img class="bars" src="assets/images/menu-button.svg">
+    <img class="close" src="assets/images/menu-button-close.svg"> 
+  <span class="hidden-small">Menu</span>
+</button>
+  <a class="logo" routerLink="/home">
+    <img src="assets/images/tfk-logo-black.svg" alt="The Finders Keepers">
+  </a>
+  <div class="controls">
+      <div class="top-bar-small">
+        <app-badge class="cart-item" [itemNumber]="cartItems" [badgeIcon]="'fa-shopping-bag'" [url]="'/cart'" [hidden]="cartItems==0"></app-badge>
+        <app-badge class="wishlist-item" [itemNumber]="wishlistItems" [badgeIcon]="'fa-heart'" [url]="'/wishlist'" [hidden]="wishlistItems==0"></app-badge>
+        <app-badge [itemNumber]="0" [badgeIcon]="'fa-user'" [url]="'/dashboard'" [hidden]="!isAuthenticated" ></app-badge>
+    </div>
+    <a class="btn btn-primary hidden-small" routerLink="/login" [style.display]="isAuthenticated ? 'none' : 'block'">Log in</a>
+    <div class="search-button" (click)="toggleSearch()" (fade)="toggleSearch()">
+      <i class="far fa-search"></i>
+    </div>
+  </div>
+  <div class="search" [ngStyle]="{'display': showSearch ? 'block' : 'none'}">
+    <input type="search" placeholder="Search for anything..." (blur)="toggleSearch()" (mouseUp)="toggleSearch()">
+    <button type="submit" class="search-trigger">
+      <i class="far fa-search"></i>
+    </button>
+  </div>
+  <div class="menu menu-focus" [ngClass]="{'open':isOpen}" [ngStyle]="{'height.px':menuHeight}">
+    <div class="side-nav">
+      <nav class="main">
+        <ul>
+          <li>
+            <a routerLink="/home">Home</a>
+          </li>
+          <li>
+            <a class="directory sub-menu" >Directory
+              <i class="fal fa-angle-right fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="collections sub-menu" (click)="launchSubMenu()"  [ngClass]="{'open':showSubMenu}" >Collections
+              <i class="fal fa-angle-right fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="ancillery">
+        <ul>
+          <li>
+            <a href="">Sign up</a>
+          </li>
+          <li>
+            <a href="/login">Login</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">Support</a>
+          </li>
+          <li>
+            <a href="">FAQs</a>
+          </li>
+          <li>
+            <a href="">Terms</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+          <li>
+            <a href="">Privacy</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="slide-out-nav collections" [ngStyle]="{'display': (showSubMenu && isOpen) ? 'block' : 'none'}" [style.opacity]="showSubMenu ? 1 : 0 ">
+      <div class="inner-wrapper" >
+        <app-category-list></app-category-list>
+      </div>
+    </div>
+  </div>
+</header>

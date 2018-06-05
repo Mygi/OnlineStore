@@ -1,0 +1,5 @@
+<div class="form-actions centered">
+  <!--<button type="submit" class="btn btn-red float-left"><i class="fas fa-trash-alt"></i> Delete</button>-->
+  <button type="submit"  [disabled]="!isValid" [ngClass]="{'btn': true, 'btn-save': isValid, 'btn-primary': !isValid}" (click)="trigger()">
+    <i class="far fa-check"></i> {{btnLabel}}</button>
+</div>

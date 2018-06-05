@@ -1,0 +1,95 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.breadcrumbs {
+  background: $light-grey;
+  height: 50px;
+  @include flex-center;
+  a {
+    color: $black;
+  }
+  ul {
+    @include inline-list;
+    position: relative;
+    top: -2px;
+    li {
+      &:after {
+        content: "/";
+        display: inline-block;
+        @include filson-light;
+        font-size: 11px;
+        padding-left: 8px;
+        padding-right: 4px;
+      }
+      a {
+        display: inline-block;
+        @include small;
+        @include spaced;
+        @include filson-book;
+        @include underline-hover;
+        font-size: 10px;
+      }
+      &:first-child {
+        a {
+          font-size: 16px;
+          position: relative;
+          top: 1px;
+          &:hover {
+            border-color: rgba(0,0,0,0);
+          }
+        }
+      }
+      &:last-child {
+        &:after {
+          display: none;
+        }
+        a {
+          cursor: default;
+          &:hover {
+            border-color: rgba(0,0,0,0);
+          }
+        }
+      }
+    }
+    @include mobile-medium {
+      display: none;
+    }
+  }
+  .container {
+    position: relative;
+  }
+}
+.share {
+  position: absolute;
+  top: 4px;
+  right: $side-gutter;
+  button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+    @include flex-center;
+    cursor: pointer;
+    font-size: 16px;
+    span {
+      @include small;
+      @include spaced;
+      @include filson-book;
+      font-size: 10px;
+      margin-left: 8px;
+    }
+  }
+  @include mobile {
+    right: $side-gutter-small;
+  }
+  @include mobile-medium {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: center;
+    button {
+      margin: auto;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+<h2 class="page-heading">Feature Slider</h2>
+<div class="content-inner">
+ 
+ <div class="new-item"><button class="btn btn-new"><i class="far fa-plus-circle"></i> New Feature Slide</button></div>
+ 
+  <form class="form card-style">
+    <fieldset class="form-group accordian">
+      <div class="control-buttons">
+        <button class="non-button"><i class="far fa-trash-alt"></i></button>
+        <div class="moveable"><i class="far fa-ellipsis-v"></i></div>
+      </div>
+      <h3 class="form-group-heading" (click)="status=!status"  
+    [ngClass]="status ? 'open' : ''"><span><i class="far fa-angle-down"></i></span> Handmade Natural Beauty</h3>
+      <div class="accordian-content">
+        <div class="form-row">
+          <label>Slide Text</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-heading"></i></span> </div>
+            <input type="text" class="form-control" value="Handmade Natural Beauty"> </div>
+        </div>
+        <div class="form-row">
+          <label>Button Text</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-font"></i></span> </div>
+            <input type="text" class="form-control" value="Shop the Collection"> </div>
+        </div>
+        <div class="form-row">
+          <label>Button Colour</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-palette"></i></span> </div>
+            <select class="form-control">
+              <option>Please choose a button colour...</option>
+              <option value="blue">Blue</option>
+              <option value="green" selected>Green</option>
+              <option value="red">Red</option>
+              <option value="black">Black</option>
+              <option value="black">White</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>URL</label>
+          <div class="input-group has-prefix lookup">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-link"></i></span> </div>
+            <input type="text" class="form-control" placeholder="Paste a link or search" value="/collections/handmade-natural-beauty"> </div>
+        </div>
+        <div class="form-row">
+          <label>Image</label>
+          <div class="product-image-control">
+            <div class="image-controls control-buttons">
+              <button class="non-button float-right remove"> <span class="hidden">Remove</span> <i class="fas fa-trash-alt"></i> </button>
+            </div>
+            <div class="image-wrap"> <img src="http://www.thefinderskeepers.com/img/home-banners/syd-ss17-4.jpg"> </div>
+          </div>
+        </div>
+        <div class="form-row radio inline separator">
+          <label>
+            <div class="fk-checkbox">
+              <input type="radio" name="visibility-slide-1" checked> <i class="checked fas fa-dot-circle"></i> <i class="unchecked fal fa-circle"></i> </div> Visible </label>
+          <label>
+            <div class="fk-checkbox">
+              <input type="radio" name="visibility-slide-1"> <i class="checked fas fa-dot-circle"></i> <i class="unchecked fal fa-circle"></i> </div> Hidden </label>
+          <p class="float-right"><a href="#">Set a specific publish date</a></p>
+        </div>
+        <div class="form-row">
+          <div class="row">
+            <div class="col-md-6">
+              <label>Publish Date</label>
+              <div class="input-group has-prefix">
+                <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-calendar-alt"></i></span> </div>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label>Unpublish Date</label>
+              <div class="input-group has-prefix">
+                <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-calendar-alt"></i></span> </div>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group accordian">
+      <div class="control-buttons">
+        <button class="non-button"><i class="far fa-trash-alt"></i></button>
+        <div class="moveable"><i class="far fa-ellipsis-v"></i></div>
+      </div>
+      <h3 class="form-group-heading" (click)="status=!status"  
+    [ngClass]="status ? 'open' : ''"><span><i class="far fa-angle-down"></i></span> Image Slide</h3>
+      <div class="accordian-content">
+        <div class="form-row">
+          <label>Slide Text</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-heading"></i></span> </div>
+            <input type="text" class="form-control"> </div>
+        </div>
+        <div class="form-row">
+          <label>Button Text</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-font"></i></span> </div>
+            <input type="text" class="form-control"> </div>
+        </div>
+        <div class="form-row">
+          <label>Button Colour</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-palette"></i></span> </div>
+            <select class="form-control">
+              <option>Please choose a button colour...</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="red">Red</option>
+              <option value="black">Black</option>
+              <option value="black">White</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>URL</label>
+          <div class="input-group has-prefix">
+            <div class="input-group-prepend"> <span class="input-group-text"><i class="far fa-link"></i></span> </div>
+            <input type="text" class="form-control" placeholder="Paste a link or search"> </div>
+          <!-- FIELD LOOKUP should pop up when the field is clicked. It should show a list of the types of content that can be searched for - in this case, we want to allow searching for a product, collection, category or page. Each section can be drilled down into and a list of available links will be displayed for each level. If the user types in the box, it will show a list of relevant searches across each section. I realise this is complex functionality, so this is more of a nice to have, let me know if you have any ideas on how this could work better / simpler -->
+          <div class="field-lookup">
+            <ul>
+              <li><span><i class="far fa-file-alt"></i></span> Pages</li>
+              <li><span><i class="far fa-box-full"></i></span> Collections</li>
+              <li><span><i class="far fa-book"></i></span> Categories</li>
+              <li><span><i class="far fa-archive"></i></span> Products</li>
+            </ul> <i class="fas fa-caret-down"></i> </div>
+        </div>
+        <div class="form-row">
+          <label>Image</label>
+          <div class="product-image-control">
+            <div class="no-image-selected">
+              <button class="btn btn-primary"> <i class="fas fa-image"></i> Select Image </button>
+            </div>
+          </div>
+        </div>
+        <div class="form-row radio inline separator">
+          <label>
+            <div class="fk-checkbox">
+              <input type="radio" name="visibility-slide-2"> <i class="checked fas fa-dot-circle"></i> <i class="unchecked fal fa-circle"></i> </div> Visible </label>
+          <label>
+            <div class="fk-checkbox">
+              <input type="radio" name="visibility-slide-2" checked> <i class="checked fas fa-dot-circle"></i> <i class="unchecked fal fa-circle"></i> </div> Hidden </label>
+          <p class="float-right"><a href="#">Set a specific publish date</a></p>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

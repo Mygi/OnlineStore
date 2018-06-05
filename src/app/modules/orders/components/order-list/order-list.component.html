@@ -1,0 +1,138 @@
+  <div class="table-responsive">
+
+    <table class="table dashboard-table clickable-rows">
+      <thead>
+        <tr>
+          <th class="all-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </th>
+          <th>Order</th>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Fulfillment status</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="unfulfilled">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0007
+            <i class="far fa-comment"></i>
+          </td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Unfulfilled</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+        <tr class="unfulfilled">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0006</td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Unfulfilled</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+        <tr class="shipped">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0005</td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Shipped</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+        <tr class="shipped refunded">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0004</td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Full Refund</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+        <tr class="shipped refunded">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0003</td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Partial refund</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+        <tr class="shipped">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0002</td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Shipped</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+        <tr class="cancelled">
+          <td class="row-selector">
+            <label class="fk-checkbox">
+              <input type="checkbox">
+              <i class="checked fas fa-check-square"></i>
+              <i class="unchecked fal fa-square"></i>
+            </label>
+          </td>
+          <td class="row-link" routerLink="./order">#0001
+            <i class="far fa-comment"></i>
+          </td>
+          <td>Jan 29, 9:43pm</td>
+          <td>Buyer name</td>
+          <td>
+            <span class="badge">Cancelled</span>
+          </td>
+          <td>$126.95</td>
+        </tr>
+      </tbody>
+    </table>

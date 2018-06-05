@@ -1,0 +1,20 @@
+<section class="feature-banner" >
+<ngu-carousel [inputs]="carouselTile" (carouselLoad)="carouselTileLoad()">
+    <ngu-item NguCarouselItem NgxCarouselItem *ngFor="let tile of featuredProducts; let i = index;">
+      <article class="feature-banner-slide slide">
+      <div class="slide-container tile" [ngStyle]="{'min-height.px': slideHeight}">
+      <div class="background-image" [style.background]="'url(' + tile.masterItem.data.imageURL + ')'">
+          <img src="{{tile.masterItem.data.imageURL}}">
+      </div>
+        <div class="info"> 
+            <h2>{{tile.title}}</h2>
+            <a routerLink="tile.link" class="btn {{tile.buttonCssClass}}">shop the collection</a>
+        </div>
+        <div class="caption"><i class="fal fa-camera-alt fa-2x"></i> <a routerLink="tile.captionLink"></a> by <a routerLink="tile.shopLink">{{tile.shopName}}</a></div>
+    </div>
+  </article>
+    </ngu-item>
+  <a NguCarouselPrev class="previous"><i class="fal fa-chevron-left fa-4x"></i></a>
+  <a NguCarouselNext class="next"><i class="fal fa-chevron-right fa-4x"></i></a>
+</ngu-carousel>
+</section>

@@ -1,0 +1,25 @@
+<app-product-price (hasChanged)="watchChildren($event)" [productItem]="productItem" ></app-product-price>
+<app-product-inventory (hasChanged)="watchChildren($event)" [productItem]="productItem"></app-product-inventory>
+<app-product-item-image [gallery]="gallery" [endPoint]="getEndPoint()" (hasChanged)="updateImages($event)" [productItem]="productItem"></app-product-item-image>
+<app-product-specifications [productItem]="productItem" (hasChanged)="watchChildren($event)"></app-product-specifications>
+<form class="form">
+    <fieldset class="form-group">
+<div class="form-row checkbox" *ngIf="productItem.isDefault && hasOptions">
+    <label>
+        <div class="fk-checkbox">
+            <input type="checkbox" [(ngModel)]='asTemplate' name="hasOptions">
+            <i class="checked fas fa-check-square"></i>
+            <i class="unchecked fal fa-square"></i>
+        </div> Copy data from this product item to others? </label>
+</div>
+<div class="form-row checkbox" *ngIf="hasOptions">
+    <label>
+        <div class="fk-checkbox">
+            <input type="checkbox" [(ngModel)]='productItem.isDefault' name="isDefault">
+            <i class="checked fas fa-check-square"></i>
+            <i class="unchecked fal fa-square"></i>
+        </div> Make this item the default Product Item (You must save for this to take affect) </label>
+</div>
+</fieldset>
+</form>
+<app-form-save [isValid]="true" [btnLabel]="'Save product item'" (saveTrigger)="save($event)"></app-form-save>

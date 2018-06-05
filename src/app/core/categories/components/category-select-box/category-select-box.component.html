@@ -1,0 +1,15 @@
+<div class="input-group has-prefix has-button" *ngIf="hasCategories()" >
+  <!--start component here -->
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+            <i class="far fa-book"></i>
+    </span>
+  </div>
+  <select class="form-control" (change)="toggle($event.target.value)" >
+    <option  *ngFor="let category of categories; let i=index" value="{{category.id}}" [selected]="i===0" >{{category.name}}</option>
+  </select>
+  <button class="btn btn-purple" (click)="addSelectedCategory()">
+    <i class="fal fa-plus fa-lg"></i>
+  </button>
+</div>
+<!--end component here -->

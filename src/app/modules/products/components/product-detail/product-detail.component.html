@@ -1,0 +1,166 @@
+<div class="container-fluid breadcrumbs" *ngIf="showEditingPanel">
+  <div class="container">
+    <h2>Preview Product</h2>
+   <a (click)="goBack()"><i class="fal fa-arrow-left"></i> Back to product editing</a>
+  </div>
+</div>
+<div class="container product-detail" *ngIf="product.masterItem !== undefined">
+  <div class="row">
+    <div class="col-md-8">
+      <section class="product-image" *ngIf="product.gallery !== undefined">
+        <ngu-carousel (initData)="initDataFn($event)" [inputs]="carouselTile" (carouselLoad)="carouselTileLoad()">
+            <div NguCarouselNext class="next-image">
+              <i class="fal fa-chevron-right"></i>
+            </div>
+            <div NguCarouselPrev class="prev-image">
+              <i class="fal fa-chevron-left"></i>
+            </div>
+          <ngu-item NguCarouselItem *ngFor="let image of gallery let i = index;">
+            <div class="product-image-slide">
+              <div class="image-wrap image-zoom">
+                <img [src]="image.remoteUrl">
+              </div>
+              <div class="caption">
+                <i class="fal fa-camera-alt fa-2x"></i>{{image.id}}- {{ image.caption }}</div>
+            </div>
+          </ngu-item>        
+        </ngu-carousel>
+      </section>
+      <div class="product-thumbs" *ngFor="let row of presentationGallery">
+        <div [ngClass]="{'image-wrap': true, 'cycle-pager-active': selectedImageID === image.id}" (click)="navigateToTile(image.id)" *ngFor="let image of row; let i = index">
+          <img [src]="image.remoteUrl">
+        </div>    
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2>{{product.title}}</h2>
+      <div class="shop-owner">by
+        <a routerLink="/shop">{{product.shopName}}</a>
+        <div class="message-center">
+          <i class="fas fa-comments"></i>
+        </div>
+      </div>
+      <div class="message-form fk-modal">
+        <form class="form">
+          <fieldset class="form-group">
+            <button class="non-button close-button">
+              <i class="fal fa-times"></i>
+            </button>
+            <h3 class="form-group-heading">Message Seller Name</h3>
+            <div class="form-row">
+              <input type="text" class="form-control" placeholder="Subject..." value="About [Product Title]">
+            </div>
+            <div class="form-row">
+              <textarea class="form-control" placeholder="Type your message here..."></textarea>
+            </div>
+          </fieldset>
+          <div class="form-actions full-width">
+            <button type="submit" class="btn btn-primary">Send
+              <i class="fas fa-comment icon-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="attributes">
+        <div class="attribute" *ngFor="let attr of attributes">
+          <h3>{{attr.attributeType}}</h3>
+          <select class="form-control" (change)="toggleAttributes($event, attr)">
+            <option value="">Choose a {{attr.attributeType}}...</option>
+            <option *ngFor="let item of attr.variants" [value]="item.attributeValueID">{{item.label }}</option>
+          </select>
+        </div>
+      </div>
+      <!--<p class="sold-out"><span class="badge">Sold Out</span></p>
+      <p class="sale-price">$35.00 AUD <span class="badge">SALE!</span></p>-->
+      <p class="price" *ngIf="product.masterItem.data !== undefined">{{selectedProductItem.originalPrice?.currency?.AUD.symbol}}{{selectedProductItem.originalPrice?.value}}
+        <span class="free-shipping">+ Shipping!</span>
+      </p>
+
+      <div class="product-actions">
+        <strong class="hidden-tiny">Qty</strong>
+        <div class="input-group plus-minus-input">
+          <div class="input-group-button hidden-tiny">
+            <button type="button" class="" [disabled]="qty==0" data-quantity="minus" data-field="quantity" (click)="qty=qty-1">
+              <i class="fal fa-minus"></i>
+            </button>
+          </div>
+          <input id="quantity" class="select-on-focus" name="quantity" type="number" [(ngModel)]="qty" size="2">
+          <div class="input-group-button hidden-tiny">
+            <button type="button" class="" data-quantity="plus" (click)="qty=qty+1" data-field="quantity">
+              <i class="fal fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        <!--<button class="btn btn-secondary" disabled>Sold Out</button>-->
+        <button class="btn btn-primary">Add to cart</button>
+        <div class="add-to-wishlist">
+          <i class="fly-away fas fa-heart fa-2x"></i>
+          <i class="full-heart fas fa-heart fa-2x"></i>
+          <i class="outline-heart far fa-heart fa-2x"></i>
+        </div>
+        <div class="size-chart">
+          <i title="Size Chart" class="fas fa-street-view fa-2x"></i>
+        </div>
+      </div>
+      <div class="description">
+        <section (click)='toggle=!toggle' [ngClass]="{'expandable': true, 'open':!toggle}" >
+          <h3>Description
+            <i class="far fa-chevron-down"></i>
+          </h3>
+          <article [ngClass]="{'expand':!toggle, 'collapse': toggle}">
+           {{product.description}}
+          </article>
+        </section>
+        <section (click)='toggle3=!toggle3' [ngClass]="{'expandable': true, 'open':!toggle3}" *ngIf="selectedProductItem.specifications.data.length > 0">
+          <h3>Specifications
+            <i class="far fa-chevron-down"></i>
+          </h3>
+          <article [ngClass]="{'expand':!toggle3, 'collapse': toggle3}">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr *ngFor="let spec of selectedProductItem.specifications?.data">
+                    <td>{{spec.type?.data.value}}</td>
+                    <td>{{spec.value}}{{spec.unit?.data.unit}} </td>
+                  </tr>                  
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+        <section (click)='toggle2=!toggle2' [ngClass]="{'expandable': true, 'open':!toggle2}">
+          <h3>Shipping
+            <i class="far fa-chevron-down"></i>
+          </h3>
+          <article [ngClass]="{'expand':!toggle2, 'collapse': toggle2}">
+            <p class="shipping-note">
+              <i class="fas fa-truck"></i> This product ships from - address here</p>
+            <div class="table-responsive" style="display:none">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Free Shipping</td>
+                    <td>2-7 days</td>
+                    <td>FREE</td>
+                  </tr>
+                  <tr>
+                    <td>Express Shipping</td>
+                    <td>1-3 days</td>
+                    <td>$15.00</td>
+                  </tr>
+                  <tr>
+                    <td>Courier Shipping</td>
+                    <td>1-2 days</td>
+                    <td>$50.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="shipping-note magenta">
+              <i class="fas fa-asterisk"></i> Made to order, please allow 10 days to dispatch.</p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

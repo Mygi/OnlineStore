@@ -1,0 +1,26 @@
+@import "../../../../../assets/styles/variables";
+.form-actions {
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    .btn:first-of-type {
+      position: relative;
+    }
+    .btn {
+      &+.btn {
+        margin-left: 10px;
+      }
+    }
+    &.full-width {
+      margin-top: -40px;
+      .btn {
+        width: 100%;
+      }
+    }
+    &.centered {
+      text-align: center;
+      margin-bottom: 50px;
+      .btn:first-of-type {
+      }
+    }
+  }

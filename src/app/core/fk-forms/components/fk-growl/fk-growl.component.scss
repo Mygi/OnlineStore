@@ -1,0 +1,77 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+.ui-growl {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: auto;
+}
+
+.ui-growl-item-container {
+  position: relative;
+  margin: 0;
+  @include card;
+  background: $medium-grey;
+  color: $white;
+  opacity: 1;
+  &.ui-growl-message-success {
+    background: $green;
+  }
+  &.ui-growl-message-warn {
+    background: $peach;
+  }
+  &.ui-growl-message-error {
+    background: $red;
+  }
+  &.ui-growl-message-info {
+    background: $grey-blue;
+  }
+}
+
+.ui-growl-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px 10px 15px;
+}
+
+.ui-growl-item p {
+  padding: 0 0 3px;
+  margin: 0;
+}
+
+.ui-growl-icon-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
+}
+
+.ui-growl-title {
+  font-weight: bold;
+  padding: 0 0 2px 0;
+  display: block;
+  &:last-child {
+    padding: 0;
+  }
+}
+
+.ui-growl-image {
+  position: absolute;
+  display: inline-block;
+  left: 11px;
+  top: 8px;
+  padding: 0;
+  font-size: 24px;
+}
+
+.ui-growl-message {
+  padding: 0 0 0 0;
+  margin-left: 30px;
+}
+
+.ui-growl-message p {
+  font-weight: normal;
+  font-size: 13px;
+}

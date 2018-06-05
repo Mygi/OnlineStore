@@ -1,0 +1,26 @@
+<!-- <ul class="temp-nav">
+  <li *ngIf="hasRole(['seller','admin'])">
+    <a routerLink="./sellers">Store Management</a>
+  </li>
+  <li *ngIf="hasRole(['buyer','admin'])">
+    <a routerLink="./buyers">Buyers</a>
+  </li>
+  <li *ngIf="hasRole(['admin'])">
+    <a routerLink="./admin">Admin</a>
+  </li>
+</ul> -->
+<div class="container-fluid dashboard" [hidden]="getCurrentPage() === undefined">
+  <app-dashboard-menu navigationParent="{{getCurrentPage()}}"></app-dashboard-menu>
+  <div class="dashboard-content">
+    <div class="container">
+      <div class="nested-route-loader faded" [ngClass]="{'nested-loading':isLoaded}">
+        <app-shop-info></app-shop-info>
+        <router-outlet>
+        </router-outlet>
+      </div>
+      <div class="nested-route-loading nestedOverlay" [ngClass]="{'nested-loaded':isLoaded, 'nested-loading':isLoading}">
+        
+      </div>
+    </div>
+  </div>
+</div>

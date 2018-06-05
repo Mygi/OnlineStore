@@ -1,0 +1,27 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.tags.tags-padded[_ngcontent-c5] {
+    padding-top: 5px;
+    margin-left: 0;
+}
+.tags {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+    list-style: none;
+    list-style: none;
+    margin-left: -4px;
+}
+.tags li{
+    float: left;
+    padding: 5px 33px 5px 10px;
+    background: $medium-grey;
+    color: #ffffff;
+    margin: 4px;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}

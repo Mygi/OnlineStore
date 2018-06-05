@@ -1,0 +1,124 @@
+<h2 *ngIf="editing" class="page-heading">Edit Product</h2>
+<h2 *ngIf="!editing" class="page-heading">New Product</h2>
+<div class="content-inner">
+<p-blockUI [blocked]="blocked">
+  <div *ngIf="blocked" class="loadingProduct">
+    <i class=" fas fa-circle-notch fa-spin fa-4x "></i>
+  </div>
+</p-blockUI>
+ <app-form-messages></app-form-messages>
+  <div class="row" *ngIf="product!==undefined">
+    <div class="col-md-8">
+      <div class="form-wrapper">
+        <form class="form" #productForm="ngForm">
+          <fieldset class="form-group">
+            <h3 class="form-group-heading">Product info <em *ngIf="product.status!==undefined">({{product.status}})</em></h3>
+            <button class="btn btn-link btn-small" (click)="showPreview()" >                
+              <i class="far fa-browser"></i> Preview </button>
+            <div class="form-row">
+              <label>Title</label>
+              <input type="text" required class="form-control" #title="ngModel" [(ngModel)]="product.title" name="title" id="title">
+              <em [ngClass]="{'red-underline': (title.invalid && title.dirty), 'valid-dirty': !title.dirty, 'valid-clean': title.untouched, 'valid-init': true, 'valid': title.valid}">
+                A product title is required </em>
+            </div>
+            <div class="form-row">
+              <label>Description</label>
+              <textarea required [(ngModel)]="product.description" [ngClass]="{'form-control': true, 'tall-box': true, 'redBorder': (description.invalid && description.touched)}" #description="ngModel" minlength="50" name="description" id="description" class="form-control tall-box"></textarea>
+              <em [ngClass]="{'red-underline': (description.invalid && description.dirty), 'valid-dirty': !description.dirty, 'valid-clean': description.untouched, 'valid-init': true, 'valid': description.valid}" >{{product.description.length}} characters (minimum of 50 required) </em>
+            </div>
+            <div class="form-row checkbox">
+              <label>
+                <div class="fk-checkbox">
+                  <input type="checkbox" [disabled]="canSave" [(ngModel)]='hasOptions' name="hasOptions">
+                  <i class="checked fas fa-check-square"></i>
+                  <i class="unchecked fal fa-square"></i>
+                </div> This product has selectable attributes, like size and colour. </label>
+            </div>
+            
+          </fieldset>
+          </form>
+          <app-form-save [hidden]="editing" [isValid]="productForm.valid" [btnLabel]="'Add Details'" (saveTrigger)="createProduct($event)"></app-form-save>
+          <app-form-save [hidden]="!editing" [isValid]="productForm.valid" [btnLabel]="'Update product'" (saveTrigger)="UpdateProduct($event)"></app-form-save>
+          <div  [style.opacity]="canSave ? '1' : '0.1'"> 
+            <app-product-attributes (itemsCreated)="saveAllItems()" [product]="product" [hidden]="!hasOptions" ></app-product-attributes>
+          </div>
+
+          <div class="product-item" *ngFor="let productItem of ( product.items.data | groupByAttribute:'Colour':true) ; let i = index" [hidden]="!hasOptions" >
+            <div id="item{{productItem.productItemID}}" class="product-item-heading" [ngClass]="{'product-item-heading':true, 'open': selected(i), 'closed': !selected(i), 'disabled': !productItem.isActive}" >
+              <h2 (click)="selectPanel(i)" *ngIf="productItem.variants.data.length !== 0">
+               
+                <em *ngFor="let variant of productItem.variants.data">
+                  {{ variant.attributeType }}: {{ variant.label }}
+                </em>
+                 
+              </h2>
+              <h2 (click)="selectPanel(i)" *ngIf="productItem.variants.data.length === 0">
+                <i class="fal fa-archive"></i>
+                <em >
+                 Default Item
+                </em>
+              </h2>
+              <div class="control-buttons" >
+                <!-- <button class="non-button" (click)="deleteItem(productItem.productItemID)" *ngIf="product.status==='unpublished'">
+                  <i class="fal fa-archive"></i>
+                </button> -->
+                <button *ngIf="productItem.isActive && !productItem.isDefault" (click)="productItem.isActive=false; saveItem(productItem, i, true)" class="non-button visibility visible">
+                  <i class="far fa-eye"></i>
+                </button>                
+                <button *ngIf="!productItem.isActive && !productItem.isDefault" (click)="productItem.isActive=true; saveItem(productItem, i)" class="non-button visibility visible">
+                  <i class="far fa-eye-slash"></i>
+                </button>
+              </div>
+              <div class="defaultItem" style="color:White">
+                <em>
+                {{ productItem.isDefault ? '(Default Item)' : '' }}
+                </em>
+              </div>
+            </div>
+            <div [ngClass]="{'product-item-form': true, 'expandItem': selected(i), 'shrinkItem': !selected(i)}">
+              <app-product-item-form [hasOptions]="true" [gallery]="product.gallery.data" [productItem]="productItem" (changed)="saveProductItem($event, i)" (galleryChanged)="updateGallery($event, i)"></app-product-item-form>
+              <!-- needs to be an Option for Copy details to other items-->
+              <!-- needs to be an Option for Make Default Item -->
+            </div>
+         </div>
+         
+         <div *ngIf="!hasOptions && canSave">
+           <app-product-item-form [gallery]="product.gallery.data" [hasOptions]="false" [productItem]="product.items.data[0]" (changed)="saveProductItem($event, 0)"
+          (galleryChanged)="updateGallery($event, i)">
+        </app-product-item-form>
+         </div>
+
+        <h2 *ngIf="hasOptions">Inactive Items</h2>
+
+          <div class="product-item" *ngFor="let productItem of ( product.items.data | groupByAttribute:'Colour':false) ; let i = index"
+            [hidden]="!hasOptions">
+            <div id="item{{productItem.productItemID}}" class="product-item-heading" [ngClass]="{'product-item-heading':true, 'disabled': !productItem.isActive}">
+              <h2 *ngIf="productItem.variants.data.length !== 0">          
+                <em *ngFor="let variant of productItem.variants.data">
+                  {{ variant.attributeType }}: {{ variant.label }}
+                </em>
+              </h2>
+              <div class="control-buttons">
+                <!-- <button class="non-button" (click)="deleteItem(productItem.productItemID)" *ngIf="product.status==='unpublished'">
+                  <i class="fal fa-archive"></i>
+                </button> -->
+                <button *ngIf="productItem.isActive" (click)="productItem.isActive=false; saveItem(productItem, i, true)" class="non-button visibility visible">
+                  <i class="far fa-eye"></i>
+                </button>
+                <button *ngIf="!productItem.isActive" (click)="productItem.isActive=true; saveItem(productItem, i, true)" class="non-button visibility visible">
+                  <i class="far fa-eye-slash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4" [hidden]="!canSave">
+     <app-category-form (updated)="saveCategories(event)" [selectedCategories]="product.productCategories" [hidden]="!canCreate && !editing"></app-category-form>
+     <app-tag-form (updated)="saveTags($event)" [item]="product.tags.data" [hidden]="!canCreate && !editing"></app-tag-form>
+    <app-product-images (updated)="updateImages($event)" [endPoint]="getEndPoint()" [images]="product.gallery.data" [hidden]="!canCreate && !editing"></app-product-images>
+    <app-form-save [btnLabel]="'Submit for Approval'" [hidden]="!canCreate && !editing"></app-form-save>
+    </div>
+  </div>
+</div>
+<!-- ATTRIBUTE IMAGE MODAL -->

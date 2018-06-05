@@ -1,0 +1,15 @@
+<form class="form" #tagForm="ngForm">
+  <fieldset class="form-group">
+    <h3 class="form-group-heading">Tags</h3>
+    <div class="form-row">
+      <tag-input [(ngModel)]="item" name="tags" [displayBy]="'name'" [identifyBy]="'id'" theme='bootstrap' (onRemove)="updateTags($event)" (onAdd)="updateTags($event)" >
+        <tag-input-dropdown [displayBy]="'name'" [identifyBy]="'name'" [focusFirstElement]="true" [autocompleteObservable]="getTags">
+          <ng-template let-item="item" let-index="index">
+            {{ item.name }}
+          </ng-template>
+        </tag-input-dropdown>
+      </tag-input>
+      <div class="sub-text">Press enter to add a new tag</div>
+    </div>
+  </fieldset>
+</form>

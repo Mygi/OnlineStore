@@ -1,0 +1,42 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.checkout {
+  ul {
+    @include full-reset;
+    list-style-type: none;
+    margin: 0 0 20px;
+    li {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      @include filson-book; 
+      padding: 15px 0;
+      border-bottom: 1px solid $light-grey;
+      &:last-child {
+        border: none;
+      }
+      .sub-text {
+        letter-spacing: 0;
+        text-transform: none;
+        padding-top: 15px;
+        margin-bottom: 0;
+        color: $medium-grey;
+      }
+    }
+    &.totals {
+      strong {
+        @include filson-book;
+        float: right;
+        letter-spacing: 0;
+      }
+      li.total {
+        font-size: 18px;
+        @include filson-medium;
+        strong {
+          @include filson-medium;
+        }
+      }
+    }
+  }
+}

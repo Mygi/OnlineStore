@@ -1,0 +1,24 @@
+  <form class="form" #emailForm="ngForm">
+    <fieldset class="form-group">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Your Old Email Address</label>
+        <input type="email" required name="emailAddress" [(ngModel)]="emailAddress" class="form-control"> </div>
+      <div class="form-row">
+        <label>Your Current Password
+          <a class="float-right" href="#">Forgot your password?</a>
+        </label>
+        <input type="password" required [(ngModel)]="password" name="password" class="form-control"> </div>
+      <div class="form-row">
+        <label>Choose a New Email address</label>
+        <input type="email" email required [(ngModel)]="newEmail" name="newEmail" class="form-control" /> </div>
+      <div class="form-row">
+        <label>Confirm Email address</label>
+        <input type="email" email [(ngModel)]="newEmail_confirmation" name="newEmail_confirmation" class="form-control" /> </div>
+      <app-form-messages></app-form-messages>
+    </fieldset>
+    <app-form-save [isValid]="emailForm.valid" [btnLabel]="'Update Email'" (saveTrigger)="save($event)"></app-form-save>
+  </form>

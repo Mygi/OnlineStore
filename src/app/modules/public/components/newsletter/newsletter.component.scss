@@ -1,0 +1,137 @@
+@import "../../../../../assets/styles/variables";
+@import "../../../../../assets/styles/mixins";
+
+.newsletter {
+  min-height: 800px;
+  position: relative;
+  text-align: center;
+  background: $black;
+  @include flex-center;
+  @include flex-justify;
+  .circular {
+    background: $rust;
+    z-index: 10;
+    @include border-radius(500px);
+    color: $white;
+    @include flex-center;
+    width: 450px;
+    height: 450px;
+    > div {
+      width: 100%;
+      padding: 0 60px;
+      h2 {
+        font-size: 47px;
+        @include filson-bold;
+        text-transform: lowercase;
+        margin-bottom: 25px;
+      }
+      form {
+        margin-bottom: 0;
+        input[type="email"] {
+          border: 1px solid rgba(255,255,255,0.2);
+          background: none;
+          border-left: none;
+          border-right: none;
+          outline: none;
+          text-align: center;
+          padding: 15px 0;
+          width: 100%;
+          color: $white;
+          font-size: 18px;
+          line-height: 1;
+          @include filson-light;
+          @include placeholder {
+            color: rgba(255,255,255,0.6);
+            font-size: 18px;
+            line-height: 1;
+            @include filson-light;
+          }
+        }
+        p {
+          margin-bottom: 30px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  .caption {
+    position: absolute;
+    bottom: 35px;
+    right: 0;
+    width: 100%;
+    color: $white;
+    @include small;
+    @include spaced;
+    font-size: 12px;
+    z-index: 10;
+    i,
+    svg {
+      position: relative;
+      top: 4px;
+      margin-right: 10px;
+    }
+    a {
+      color: $white;
+      border-bottom: 1px solid $white;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .background-image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    opacity: 0.8;
+    img {
+      display: none;
+    }
+  }
+}
+
+.instagram {
+  text-align: center;
+  padding: 80px 0;
+  color: $grey-blue;
+  h2 {
+    @include filson-medium;
+    font-size: 40px;
+    margin-bottom: 30px;
+    em {
+      font-size: 30px;
+      @include filson-light;
+      font-style: normal;
+    }
+  }
+  .instagram-feed {
+    margin: 0 -20px 40px;
+    iframe {
+      min-height: 240px;
+    }
+  }
+  ul.social-media {
+    @include inline-list;
+    @include filson-light;
+    @include flex-center;
+    @include flex-justify;
+    font-size: 20px;
+    li {
+      padding: 0 8px;
+      &:first-child {
+        padding-right: 18px;
+      }
+      &:last-child {
+        padding-left: 18px;
+      }
+      a {
+        color: $grey-blue;
+      }
+    }
+  }
+}

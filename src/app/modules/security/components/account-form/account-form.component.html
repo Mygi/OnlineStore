@@ -1,0 +1,91 @@
+<app-form-messages></app-form-messages>
+<h2 class="page-heading">Account Settings</h2>
+<div class="content-inner">
+  <form class="form" #userForm="ngForm">
+    <fieldset class="form-group" *ngIf="user !== undefined">
+      <h3 class="form-group-heading">My Details</h3>
+      <a class="btn btn-link btn-small password-modal-trigger" (click)="display=true; showEmailForm=false; header = 'Reset password';">
+          <i class="fa fa-key"></i>
+        Change my password</a>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-6">
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="user.firstName" name="firstName" class="form-control"> </div>
+          <div class="col-md-6">
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="user.lastName" name="lastName" class="form-control"> </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Account Email</label>
+            <div class="input-group">
+              <button type="submit" class="btn btn-save" (click)="display=true;showEmailForm=true;header = 'Update Email Address';">
+               <i class="far fa-check"></i>Update Email address</button>
+            </div>
+          </div>
+      <div class="col-md-6" *ngIf="user.userProfile!==undefined">
+        <label>My Birthday</label>
+        <div class="input-group has-prefix">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="far fa-calendar-alt"></i>
+            </span>
+          </div>
+          <input type="date" [(ngModel)]="user.userProfile.birthDate" name="birthdate" class="form-control date-picker"> </div>
+      </div>
+      </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group" *ngIf="user.userProfile !== undefined">
+      <h3 class="form-group-heading">My Address</h3>
+      <div class="form-row">
+        <label>Phone</label>
+        <input type="phone" [(ngModel)]="user.userProfile.mobileNumber" name="phone" class="form-control"> </div>
+      <div class="form-row">
+        <label>Street</label>
+        <input type="text" [(ngModel)]="user.userProfile.address1" name="street1" class="form-control"> </div>
+      <div class="form-row">
+        <label>Street Line 2 (optional)</label>
+        <input type="text" [(ngModel)]="user.userProfile.address2" name="street2" class="form-control"> </div>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-6">
+            <label>City</label>
+            <input type="text" required [(ngModel)]="user.userProfile.city" name="city" class="form-control"> </div>
+          <div class="col-md-6">
+            <label>Postcode</label>
+            <input type="number" [(ngModel)]="user.userProfile.postcode" name="postcode" class="form-control"> </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Country</label>
+            <select class="form-control" required [(ngModel)]="user.userProfile.countryCode" name="country">
+              <option *ngFor="let country of countries" [ngValue]="country.code">{{country.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label>State/Territory</label>
+            <select class="form-control" required [(ngModel)]="user.userProfile.state" name="states">
+              <option *ngFor="let state of states" [ngValue]="state.value">{{state.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-actions centered">
+      <button type="submit" class="btn btn-save" (click)='save(userForm)'>
+                        <i class="far fa-check"></i>
+        Save</button>
+    </div>
+  </form>
+</div>
+<!-- CHANGE PASSWORD MODAL -->
+<app-fk-dialog header="{{header}}" [(visible)]="display" [width]="600" [height]="500">
+  <app-reset-password (completed)="display=false" private="true" [userId]="user.userID" [hidden]="showEmailForn" *ngIf="!showEmailForm"></app-reset-password>
+  <app-update-email-form (completed)="display=false" [userId]="user.userID" *ngIf="showEmailForm"></app-update-email-form>
+</app-fk-dialog>

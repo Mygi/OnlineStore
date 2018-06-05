@@ -1,0 +1,133 @@
+
+<h2 class="page-heading">My Shop</h2>
+<div class="content-inner">
+  <form class="form" #shopForm="ngForm">
+    <fieldset class="form-group">
+      <h3 class="form-group-heading">Shop Details</h3>
+      <button class="btn btn-link btn-small" (click)="showPreview()">
+        <i class="far fa-browser"></i> Preview 
+      </button>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-10">
+            <label>Shop Name</label>
+            <input type="text" class="form-control" [(ngModel)]="shop.name" name="shopName" id="shopName" (change)="save()">
+          </div>
+          <div class="col-md-2">
+            <label>{{ shop.shopOpen ? 'Open' : 'Closed' }}</label>
+            <label class="switch">
+              <input id="closeShop" type="checkbox" [(ngModel)]="shop.shopOpen" name="shopOpen" id="shopOpen" (change)="save()">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="closeShopEvent" class="form-row" [hidden]="shop.shopOpen">
+        <label>Shop Message</label>
+        <input type="text" [(ngModel)]="shop.shopMessage" name="shopMessage" id="shopMessage" class="form-control">
+        <p class="sub-text">Your shop is closed, let your customers know what's going on.</p>
+      </div>
+      <div class="form-row">
+        <label>Shop Description</label>
+        <textarea class="form-control" [(ngModel)]="shop.shopDescription" name="shopDescription" id="shopDescription" (change)="save()"></textarea>
+      </div>
+      <div class="form-row" *ngIf="shop.shopImage">
+        <app-kendo-uploader [endPoint]="endPoint" [id]="shop.id" (imageUpdated)="saveImage($event)" [imageUrl]="shop.shopImage" [caption]="''"></app-kendo-uploader>
+      </div>
+    </fieldset>
+    </form>
+    <form class="form" #bankingForm="ngForm">
+    <fieldset class="form-group"  >
+      <h3 class="form-group-heading">Bank Details</h3>
+      <p> <em>This is the bank account you will be paid out to.</em></p>
+      <div class="form-row" [ngStyle]="{'opacity' : bankingUnlocked ? 1 : 0.3}">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Account Name</label>
+            <input type="text" #accountName="ngModel" [(ngModel)]="shop.banking.accountName" required name="accountName" class="form-control">
+            <em style="color:red" *ngIf="accountName.invalid">*Required</em>
+          </div>
+          <div class="col-md-6">
+            <label>Bank Name</label>
+            <select name="bankName" required [(ngModel)]="shop.banking.bankID" class="form-control">
+              <option value="0" [selected]="true">No bank selected</option>
+              <option *ngFor="let bank of banks; let i=index" value="{{bank.bankID}}" [selected]="i===0">{{bank.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-row" [ngStyle]="{'opacity' : bankingUnlocked ? 1 : 0.3}">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Account Number</label>
+            <input type="number" #accountNumber="ngModel" [(ngModel)]="shop.banking.accountNumber" required name="accountNumber" type="number" class="form-control">
+            <em style="color:red" *ngIf="accountNumber.invalid">*Required</em>
+          </div>
+          <div class="col-md-6">
+            <label>BSB Number</label>
+            <input type="number" #bsb="ngModel" [(ngModel)]="shop.banking.bsb" required minlength="6" maxlength="6" type="number" name="bsb" class="form-control"> 
+            <em style="color:red" *ngIf="bsb.invalid"> *Required </em>
+            <em *ngIf="bsb.errors?.minlength"> A BSB number must be 6 digits </em>
+          </div>          
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-6" *ngIf="!bankingUnlocked">
+              <button type="submit" (click)="display=true" class="btn btn-default">
+                <i class="far fa-user"></i> Unlock Banking</button>
+            </div>
+            <div class="col-md-4 col-md-offset-6" *ngIf="bankingUnlocked">
+                <button type="submit" [disabled]="!bankingForm.valid" (click)='saveBanking()' class="btn btn-save">
+                          <i class="far fa-check"></i>Save Banking</button>
+            </div>
+          </div>
+        </div>
+    </fieldset>
+    </form>
+  <form class="form" id="form3">
+    <fieldset class="form-group">
+      <h3 class="form-group-heading">Shop Categories</h3>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-6 dynamic-column" *ngFor="let level of categoryHandler.getLevels(1); let i=index" >
+            <app-category-select-box (addCategory)="categoryHandler.addCategory($event)" *ngIf="categoryHandler.hasLevel(i)" [parentId]="categoryHandler.getParentId(i)"
+              [categories]="categoryHandler.getCategories(i)" [depth]="i" (toggled)="categoryHandler.onToggled($event)">
+            </app-category-select-box>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="row">
+          <div class="col-md-12">
+            <app-category-chips [selectedCategories]="categoryHandler.getAllFromList()" (removed)="categoryHandler.removeCategory($event)"></app-category-chips>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <div class="form-actions centered">
+      <button type="submit" (click)='save()' class="btn btn-save">
+                <i class="far fa-check"></i> Save</button>
+    </div>
+  </form>
+</div>
+<app-form-messages></app-form-messages>
+<app-fk-dialog header="Unlock Banking" [(visible)]="display" [width]="600" [height]="300">
+        <fieldset class="form-group">
+          <div class="form-row">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="password" name="password">
+              </div>
+            </div>
+           </div>
+          </fieldset>
+              <div class="form-actions centered">
+                <button type="submit" (click)="unlockBanking()" class="btn btn-save">
+                  <i class="far fa-user"></i> Unlock Banking</button>
+              </div>
+              <div class="authText">
+                {{authText}}
+              </div>
+</app-fk-dialog>

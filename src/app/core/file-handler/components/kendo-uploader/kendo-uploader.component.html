@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="product-image-control">
+      <div class="image-controls control-buttons">
+        <button class="non-button float-left edit" (click)="display=!display">
+          <span class="hidden">Edit</span>
+          <i class="fas fa-user"></i>
+        </button>
+      </div>
+      <div class="image-wrap square-crop">
+        <img [src]="imageUrl">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="display">
+  <div class="col-md-6 col-md-offset-3">
+    <kendo-upload [multiple]="false" [autoUpload]="false" [saveUrl]="endPoint" [removeUrl]="uploadRemoveUrl" [restrictions]="uploadRestrictions"
+      (select)="selectEventHandler($event)"  (upload)="uploadEventHandler($event)" [withCredentials]="false" (clear)="clearEventHandler($event)" (remove)="removeEventHandler($event)" (success)="completeEventHandler($event)">
+    </kendo-upload>
+  </div>
+</div>

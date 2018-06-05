@@ -1,0 +1,13 @@
+<form class="form">
+  <fieldset class="form-group">
+    <h3 class="form-group-heading">Categories</h3>
+    <div class="form-row" *ngFor="let level of categoryHandler.getLevels(); let i=index" [hidden]="!categoryHandler.hasLevel(i)">
+      <app-category-select-box (addCategory)="updateService($event)" *ngIf="categoryHandler.hasLevel(i)" [parentId]="categoryHandler.getParentId(i)"
+        [categories]="categoryHandler.getCategories(i)" [depth]="i" (toggled)="categoryHandler.onToggled($event)">
+      </app-category-select-box>
+    </div>
+    <div class="form-row">
+      <app-category-chips [selectedCategories]="categoryHandler.getAllFromList()" (removed)="removeService($event)"></app-category-chips>
+    </div>
+  </fieldset>
+</form>

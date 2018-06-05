@@ -1,0 +1,4 @@
+<div routerLink="/wishlist" class="wishlist" [hidden]="wishListItems==0">
+  <i class="far fa-heart"></i>
+  <span class="badge" *ngIf="wishListItems>0">{{wishListItems}}</span>
+</div>

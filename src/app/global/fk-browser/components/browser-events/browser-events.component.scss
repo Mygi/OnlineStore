@@ -1,0 +1,14 @@
+.loadRoute {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.ui-dialog {
+  .ui-dialog-titlebar,
+  .ui-dialog-content {
+    opacity: 0;
+  }
+}

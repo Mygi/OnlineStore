@@ -1,0 +1,22 @@
+<form class="form">
+  <fieldset class="form-group">
+    <h3 class="form-group-heading">Image</h3>
+    <div class="form-row">
+      <p>Choose an image from the gallery or click on the user icon to upload a new file</p>
+      <p *ngIf="productItem.isDefault"><strong>Important! This image will become the main display Image for this product</strong></p>
+    </div>
+    <div class="form-row product-image-list">        
+      <!-- <app-image-uploader [endPoint]="endPoint" (imageUpdated)="saveImage($event)" [imageUrl]="productItem.imageURL" [image]="productItem.imageURL" [caption]="productItem.imageID"></app-image-uploader>                     -->
+      <app-kendo-uploader [endPoint]="endPoint" [id]="productItem.productItemID" (imageUpdated)="saveImage($event)" [imageUrl]="productItem.imageURL"
+        [caption]="productItem.imageID"></app-kendo-uploader>
+    </div>
+    <div class="form-row product-image-list">
+      <div class="product-thumbs">
+        <div [ngClass]="{'image-wrap': true, 'cycle-pager-active': selectedImageID === image.productImageID}" (click)="navigateToTile(image)"
+          *ngFor="let image of gallery; let i = index">
+          <img [src]="image.url">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>

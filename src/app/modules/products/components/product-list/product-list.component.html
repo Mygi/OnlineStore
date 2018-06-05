@@ -1,0 +1,81 @@
+<h2 class="page-heading">Products</h2>
+<div class="content-inner">
+<div class="list-actions">
+  <form #productList="ngForm">
+    <div class="input-group has-prefix has-button">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="far fa-search"></i>
+        </span>
+      </div>
+      <input class="form-control" [(ngModel)]="productFilterText" name="filter" type="search" placeholder="Search products">
+      <button class="btn btn-new" routerLink="./new">
+        <i class="far fa-plus-circle"></i> Add product</button>
+    </div>
+  </form>
+</div>
+<div class="table-responsive">
+
+  <table class="table dashboard-table clickable-rows">
+    <thead>
+      <tr>
+        <!-- <th class="all-selector">
+          <label class="fk-checkbox">
+            <input type="checkbox">
+            <i class="checked fas fa-check-square"></i>
+            <i class="unchecked fal fa-square"></i>
+          </label>
+        </th> -->
+        <th (click)="sortItem='title'; ascending=!ascending" colspan="2">Product
+            <em *ngIf="sortItem==='title' && ascending;">
+              <i class="far fa-angle-down"></i>
+            </em>
+            <em *ngIf="sortItem==='title' && !ascending;">
+              <i class="far fa-angle-up"></i>
+            </em>
+        </th>
+        <th (click)="sortItem='totalStock'; ascending=!ascending">Inventory 
+          <em *ngIf="sortItem==='totalStock' && ascending;"><i class="far fa-angle-down"></i></em>
+          <em *ngIf="sortItem==='totalStock' && !ascending;">
+            <i class="far fa-angle-up"></i>
+          </em>
+        </th>
+        <th (click)="sortItem='maxPrice'; ascending=!ascending"> Price
+            <em *ngIf="sortItem==='maxPrice' && ascending;">
+              <i class="far fa-angle-down"></i>
+            </em>
+            <em *ngIf="sortItem==='maxPrice' && !ascending;">
+              <i class="far fa-angle-up"></i>
+            </em>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products | productSearch : productFilterText:sortItem:ascending:start:end; let i = index; ">
+        <!-- <td class="row-selector">
+          <label class="fk-checkbox">
+            <input type="checkbox" (ngModelChange)="onFilterChange(i,$event)"  [(ngModel)]="filters[i]">
+            <i class="checked fas fa-check-square"></i>
+            <i class="unchecked fal fa-square"></i>
+          </label>
+        </td> -->
+        <td class="row-link product-image">
+          <div [routerLink]="['product', product.productID]" class="image-wrap square-crop">
+            <img [src]="product.mainImage">
+          </div>
+        </td>
+        <td class="row-link" [routerLink]="['product', product.productID]">{{product.title}} ({{product.variants}} variation{{product.variants > 1 ? 's' : ''}})
+        </td>
+        <td>{{product.inventoryString}}</td>
+        <td>{{product.priceString}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-filters">
+    <div *ngIf="productsPerPage > ( products | productSearch : productFilterText:sortItem:ascending:start:end)?.length">
+    {{(products | productSearch : productFilterText:sortItem:ascending:start:end)?.length}} results
+    </div>
+    <p-paginator *ngIf="productsPerPage <= (products | productSearch : productFilterText:sortItem:ascending:start:end)?.length" [rows]="productsPerPage" (onPageChange)="updateList($event)" [totalRecords]="products.length" [rowsPerPageOptions]="[10,20,30, 40]"></p-paginator>
+  </div>
+</div>
+</div>

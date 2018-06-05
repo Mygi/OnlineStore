@@ -1,0 +1,17 @@
+
+@import "../../../../../assets/styles/mixins";
+form .form-row.authorising {
+  background: $light-grey;
+  @include filson-book;
+  .fa-times {
+    float: right;
+  }
+}
+.login {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: #fff;
+}
+.login .container {
+    max-width: 600px!important;
+}

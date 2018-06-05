@@ -1,0 +1,531 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "parentCategoryId": null,
+            "name": "Art & Illustration",
+            "description": null,
+            "slug": "art-illustration",
+            "imageUrl": "http://www.thefinderskeepers.com/assets/images/_profiles/formebydee/thumba.jpg",
+            "subCategories": [
+                    {
+                        "id": 1,
+                        "name": "Prints",
+                        "slug": "prints",
+                        "description": "",
+                        "parentCategoryId": 1,
+                        "categoryName": "Art & Illustration",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 2,
+                        "name": "Framed Artworks",
+                        "slug": "framed-artworks",
+                        "description": "",
+                        "parentCategoryId": 1,
+                        "categoryName": "Art & Illustration",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 3,
+                        "name": "Wall Decor",
+                        "slug": "wall-decor",
+                        "description": "",
+                        "parentCategoryId": 1,
+                        "categoryName": "Art & Illustration",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 4,
+                        "name": "Photography",
+                        "slug": "photography",
+                        "description": "",
+                        "parentCategoryId": 1,
+                        "categoryName": "Art & Illustration",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]            
+        },
+        {
+            "id": 2,
+            "parentCategoryId": null,
+            "name": "Baby & Kids",
+            "description": null,
+            "slug": "baby-kids",
+            "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/markets.thefinderskeepers.com/profile-images/hLVdyA4uElAbFy9TOyNPVQQlrp79ErCfD2Lu47oX1509323338.jpeg",
+            "subCategories": [
+                    {
+                        "id": 5,
+                        "name": "Baby Clothing 0-3",
+                        "slug": "baby-clothing-0-3",
+                        "description": "",
+                        "parentCategoryId": 2,
+                        "categoryName": "Baby & Kids",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 6,
+                        "name": "Kids Clothing 3+",
+                        "slug": "kids-clothing-3-up",
+                        "description": "",
+                        "parentCategoryId": 2,
+                        "categoryName": "Baby & Kids",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 7,
+                        "name": "Kids Accessories",
+                        "slug": "kids-accessories",
+                        "description": "",
+                        "parentCategoryId": 2,
+                        "categoryName": "Baby & Kids",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 8,
+                        "name": "Toys",
+                        "slug": "toys",
+                        "description": "",
+                        "parentCategoryId": 2,
+                        "categoryName": "Baby & Kids",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 9,
+                        "name": "Kids Art",
+                        "slug": "kids-art",
+                        "description": "",
+                        "parentCategoryId": 2,
+                        "categoryName": "Baby & Kids",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 10,
+                        "name": "Party",
+                        "slug": "party",
+                        "description": "",
+                        "parentCategoryId": 2,
+                        "categoryName": "Baby & Kids",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]            
+        },
+        {
+            "id": 3,
+            "parentCategoryId": null,
+            "name": "Fashion",
+            "description": null,
+            "slug": "fashion",
+            "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/markets.thefinderskeepers.com/profile-images/q7p67ud0l37KDxN1t6259OETsv3nGgmnfiN04c2f1515187689.jpeg",
+            "subCategories": [
+                    {
+                        "id": 11,
+                        "name": "Clothing",
+                        "slug": "clothing",
+                        "description": "",
+                        "parentCategoryId": 3,
+                        "categoryName": "Fashion",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 12,
+                        "name": "Accessories",
+                        "slug": "accessories",
+                        "description": "",
+                        "parentCategoryId": 3,
+                        "categoryName": "Fashion",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 13,
+                        "name": "Bags & Wallets",
+                        "slug": "bags-wallets",
+                        "description": "",
+                        "parentCategoryId": 3,
+                        "categoryName": "Fashion",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 14,
+                        "name": "Shoes",
+                        "slug": "shoes",
+                        "description": "",
+                        "parentCategoryId": 3,
+                        "categoryName": "Fashion",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 15,
+                        "name": "Hats",
+                        "slug": "hats",
+                        "description": "",
+                        "parentCategoryId": 3,
+                        "categoryName": "Fashion",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]            
+        },
+        {
+            "id": 4,
+            "parentCategoryId": null,
+            "name": "Jewellery",
+            "description": null,
+            "slug": "jewellery",
+            "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/markets.thefinderskeepers.com/profile-images/BPkRiDD5Ao7qvJmifvBW15gROBaYeNylSYzX1n0C1508828552.jpeg",
+            "subCategories":[
+                    {
+                        "id": 16,
+                        "name": "Earrings",
+                        "slug": "earrings",
+                        "description": "",
+                        "parentCategoryId": 4,
+                        "categoryName": "Jewellery",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 17,
+                        "name": "Necklaces",
+                        "slug": "necklaces",
+                        "description": "",
+                        "parentCategoryId": 4,
+                        "categoryName": "Jewellery",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 18,
+                        "name": "Bracelets",
+                        "slug": "bracelets",
+                        "description": "",
+                        "parentCategoryId": 4,
+                        "categoryName": "Jewellery",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 19,
+                        "name": "Rings",
+                        "slug": "rings",
+                        "description": "",
+                        "parentCategoryId": 4,
+                        "categoryName": "Jewellery",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]
+            },        
+        {
+            "id": 5,
+            "parentCategoryId": null,
+            "name": "For Him",
+            "description": null,
+            "slug": "for-him",
+            "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/markets.thefinderskeepers.com/profile-images/DpxNywcE4pKFBFxtHDt2IZn0xLAFnu2Fpx6ZsxqL1507590929.jpeg",
+            "subCategories": [
+                    {
+                        "id": 20,
+                        "name": "Clothing",
+                        "slug": "clothing",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 21,
+                        "name": "Grooming",
+                        "slug": "grooming",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 22,
+                        "name": "Bags & Wallets",
+                        "slug": "bags-wallets",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 23,
+                        "name": "Accessories",
+                        "slug": "accessories",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 24,
+                        "name": "Hats & Caps",
+                        "slug": "hats-caps",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 25,
+                        "name": "Gadgets",
+                        "slug": "gadgets",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 26,
+                        "name": "Shoes",
+                        "description": "",
+                        "parentCategoryId": 5,
+                        "categoryName": "For Him",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]          
+        },
+        {
+            "id": 6,
+            "parentCategoryId": null,
+            "name": "Home & Living",
+            "description": null,
+            "slug": "home-living",
+            "imageUrl": "http://www.thefinderskeepers.com/assets/images/_profiles/nikau/thumb.jpg",
+            "subCategories": [
+                    {
+                        "id": 27,
+                        "name": "Candles",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 28,
+                        "name": "Ceramics",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 29,
+                        "name": "Furniture",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 30,
+                        "name": "Homewares",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 31,
+                        "name": "Lighting",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 32,
+                        "name": "Pet Accessories",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 33,
+                        "name": "Plants",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 34,
+                        "name": "Publications & Books",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 35,
+                        "name": "Stationary",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 36,
+                        "name": "Textiles",
+                        "description": "",
+                        "parentCategoryId": 6,
+                        "categoryName": "Home & Living",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]
+        },
+        {
+            "id": 7,
+            "parentCategoryId": null,
+            "name": "Outdoor & Adventure",
+            "description": null,
+            "slug": "outdoor-adventure",
+            "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/markets.thefinderskeepers.com/profile-images/Gth53OVmqzIOuVbtfF5zbeDHrmEOunB1dSz6ubui1507855704.jpeg",
+            "subCategories": [
+                    {
+                        "id": 37,
+                        "name": "Skate & Surf",
+                        "description": "",
+                        "parentCategoryId": 7,
+                        "categoryName": "Outdoor & Adventure",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 38,
+                        "name": "Camping Accessories",
+                        "description": "",
+                        "parentCategoryId": 7,
+                        "categoryName": "Outdoor & Adventure",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 39,
+                        "name": "Outdoor Products",
+                        "description": "",
+                        "parentCategoryId": 7,
+                        "categoryName": "Outdoor & Adventure",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 40,
+                        "name": "Bike Accessories",
+                        "description": "",
+                        "parentCategoryId": 7,
+                        "categoryName": "Outdoor & Adventure",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 41,
+                        "name": "Travel",
+                        "description": "",
+                        "parentCategoryId": 7,
+                        "categoryName": "Outdoor & Adventure",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]
+        },
+        {
+            "id": 8,
+            "parentCategoryId": null,
+            "name": "Wellbeing & Beauty",
+            "description": null,
+            "slug": "wellbeing-beauty",
+            "imageUrl": "https://s3-ap-southeast-2.amazonaws.com/markets.thefinderskeepers.com/profile-images/AoH9XlmsMADnoQa6eXZOzZZ8Z1A0d654DTyJJ20i1505251806.jpeg",
+            "subCategories": [
+                    {
+                        "id": 42,
+                        "name": "Yoga",
+                        "description": "",
+                        "parentCategoryId": 8,
+                        "categoryName": "Wellbeing & Beauty",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 43,
+                        "name": "Skate & Surf",
+                        "description": "",
+                        "parentCategoryId": 8,
+                        "categoryName": "Wellbeing & Beauty",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 44,
+                        "name": "Soaps",
+                        "description": "",
+                        "parentCategoryId": 8,
+                        "categoryName": "Wellbeing & Beauty",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 45,
+                        "name": "Beauty & Nailcare",
+                        "description": "",
+                        "parentCategoryId": 8,
+                        "categoryName": "Wellbeing & Beauty",
+                        "isCustom": false,
+                        "subCategories":[]
+                    },
+                    {
+                        "id": 46,
+                        "name": "Fragrances",
+                        "description": "",
+                        "parentCategoryId": 8,
+                        "categoryName": "Wellbeing & Beauty",
+                        "isCustom": false,
+                        "subCategories":[]
+                    }
+                ]
+            }        
+    ],    
+        "pagination": {
+            "total": 8,
+            "count": 8,
+            "perPage": 15,
+            "currentPage": 1,
+            "totalPages": 1,
+            "links": []
+        }    
+}

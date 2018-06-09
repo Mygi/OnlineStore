@@ -7,7 +7,7 @@ The development strategy is following the models as described here:
 ## Installation
 A few options to build from:
 
-1. Production Version [Currently Failing!]
+### 1. Production Version [Currently Failing!]
 go to your console  
 ` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`  
 `npm install`  

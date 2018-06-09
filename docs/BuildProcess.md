@@ -8,28 +8,30 @@ The development strategy is following the models as described here:
 A few options to build from:
 
 1. Production Version [Currently Failing!]
-go to your console
-` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`
-`npm install` 
-`npm run test`
-If it passes:
+go to your console  
+` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`  
+`npm install`  
+`npm run test`  
+
+If it passes:  
 `npm run start`
 
-2. Release
-` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`
-` git fetch`
-` git checkout v[VersionNumber]` 
-`npm install`
-`npm run test`
-If it passes:
+### 2. Release
+` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`  
+` git fetch`  
+` git checkout v[VersionNumber]`  
+`npm install`  
+`npm run test` 
+
+If it passes:  
 `npm run start`
 
-3. Development 
-` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`
-` git fetch`
-` git checkout dev` 
-`npm install`
-`npm run test`
+### 3. Development 
+` git clone https://github.com/TheFindersKeepers/OnlineMarketplace-Frontend.git`  
+` git fetch`  
+` git checkout dev`   
+`npm install`  
+`npm run test`  
 
 ## To start a new feature
 When: New code from a planned feature in Asana
